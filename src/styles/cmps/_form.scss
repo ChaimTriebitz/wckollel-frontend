@@ -1,0 +1,27 @@
+.form {
+   flex-direction: column;
+   gap: 1em;
+   padding: 1em;
+
+   .error {
+      text-align: center;
+      color: $c-danger;
+      height: 1.5em;
+   }
+
+
+   
+   .input {
+      position: relative;
+      justify-content: space-between;
+      align-items: baseline;
+   
+      >* {
+         flex: 1;
+      }
+   
+      label {
+         color: $c6;
+      }
+   }
+}

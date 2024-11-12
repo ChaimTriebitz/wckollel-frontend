@@ -1,0 +1,24 @@
+.header {
+   height: 10vh;
+   background: $c1;
+   padding: 1em 2em;
+   justify-content: space-between;
+
+   .logo {
+      max-width: 200px;
+   }
+
+   .nav {
+      flex: 1;
+      gap: 1em;
+      justify-content: flex-end;
+
+      .link {
+         display: flex;
+         align-items: center;
+         color: $c2;
+         font-size: 1.1em;
+         text-decoration: underline;
+      }
+   }
+}

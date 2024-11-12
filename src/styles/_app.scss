@@ -1,0 +1,30 @@
+.App {
+   flex-direction: column;
+   height: 100vh;
+   width: 100vw;
+   gap: 0;
+
+
+}
+
+::-webkit-scrollbar {
+   width: 0.75em;
+   height: 0.75em;
+}
+
+::-webkit-scrollbar-track {
+   background: $c2;
+}
+
+::-webkit-scrollbar-thumb {
+   background: $c1;
+   border-radius: 5px;
+}
+
+::-webkit-calender-picker-indicator {
+   background: white;
+   padding: 0.5em;
+   cursor: pointer;
+   border-radius: 5px;
+}
+

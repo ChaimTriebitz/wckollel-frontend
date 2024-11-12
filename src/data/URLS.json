@@ -1,0 +1,13 @@
+{
+   "base": "https://starter/",
+   "auth": {
+      "register": "api/auth/register",
+      "login": "api/auth/login"
+   },
+   "data": {
+      "create": "api/data/create",
+      "get": "api/data",
+      "remove": "api/data/remove",
+      "update": "api/data/update"
+   }
+}

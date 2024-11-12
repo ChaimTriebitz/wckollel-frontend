@@ -1,0 +1,78 @@
+.msg {
+   z-index: 100000;
+   padding: 1em 3em 1em 1em;
+   background: gray;
+   position: absolute;
+   right: 0;
+   top: 10px;
+   border-radius: 4px;
+   overflow: hidden;
+   pointer-events: none;
+   align-items: center;
+   opacity: 0;
+
+   svg {
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+   }
+
+   h1 {
+      padding: 0 20px;
+      font-size: 18px;
+   }
+
+   button {
+      position: absolute;
+      right: 0;
+      top: 0%;
+      bottom: 0;
+      padding: 1em;
+
+      svg {
+         border-radius: 50%;
+         width: 20px;
+         height: 20px;
+      }
+   }
+
+   &.success {
+      background: darkgreen;
+      border-left: 0.75em solid lightgreen;
+
+      svg {
+         background: lightgreen;
+      }
+
+      button {
+         background: lightgreen;
+
+         &:hover {
+            opacity: 0.9;
+         }
+      }
+   }
+
+   &.warning {
+      background: darkred;
+      border-left: 0.75em solid darkred;
+
+      svg {
+         background: darkred;
+      }
+
+      button {
+         background: darkred;
+      }
+   }
+
+   &.show {
+      pointer-events: auto;
+      animation: show_slide 1s ease forwards;
+      opacity: 1;
+   }
+
+   &.hide {
+      animation: hide_slide 1s ease forwards;
+   }
+}

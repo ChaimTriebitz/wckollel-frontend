@@ -1,0 +1,14 @@
+.btn {
+   border-radius: 2.5px;
+   padding: 0.25em 0.5em;
+   transition: 0.25s ease-in-out;
+   white-space: nowrap;
+   position: relative;
+
+   &.success {
+      background: $c-success;
+   }
+   &.danger {
+      background: $c-danger;
+   }
+}
