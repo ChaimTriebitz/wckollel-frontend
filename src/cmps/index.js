@@ -23,7 +23,6 @@ import { ConfirmDialog } from './dialogs/ConfirmDialog.jsx'
 export {
    ConfirmDialog,
    MultiSelect,
-   AddRowDialog,
    Select,
    Input,
    Msg,
@@ -33,16 +32,6 @@ export {
    // AUTH
    Register,
    Login,
-   // TABLE
-   Table,
-   Cells,
-   Text,
-   SelectRow,
-   Date,
-   DropDown,
-   Remove,
-   Details,
-   Actions,
    // DIALOGS
    Dialogs,
    DetailsDialog,

@@ -1,4 +1,4 @@
-import { AddRowDialog, ConfirmDialog, DetailsDialog, Login, Register } from '../../cmps'
+import {  ConfirmDialog, DetailsDialog, Login, Register } from '../../cmps'
 import { useGlobalState } from '../../hooks'
 
 export const Dialogs = () => {
@@ -6,8 +6,8 @@ export const Dialogs = () => {
 
    return (
       <>
-         {dialogs.details?.isOpen && <DetailsDialog />}
-         {dialogs.confirm?.isOpen && <ConfirmDialog />}
+         {dialogs?.details?.isOpen && <DetailsDialog />}
+         {dialogs?.confirm?.isOpen && <ConfirmDialog />}
       </>
    )
 } 

@@ -1,7 +1,6 @@
 import React from 'react'
 import { useChangedValues, useDialog, useForm, useGlobalState } from '../../hooks'
 import { svgs } from '../../assets/svgs'
-import { DIALOG_HEADERS } from '../../data';
 import { Input } from '..';
 import { objects } from '../../functions';
 import { update } from '../../controllers';
@@ -33,7 +32,7 @@ export const DetailsDialog = () => {
             </header>
             <main >
                <form onSubmit={handleSave} className='form'>
-                  {
+                  {/* {
                      DIALOG_HEADERS.map(header =>
                         <Input
                            key={header.internal_name}
@@ -42,7 +41,7 @@ export const DetailsDialog = () => {
                            handleChange={handleChange}
                         />
                      )
-                  }
+                  } */}
                </form>
             </main>
          </div>
