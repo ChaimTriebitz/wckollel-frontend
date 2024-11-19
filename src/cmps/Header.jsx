@@ -2,8 +2,9 @@ import { NavLink } from 'react-router-dom'
 import logo from '../assets/imgs/wckollel.jpg';
 
 const links = [
-   { name: 'Home', link: '/' },
-   { name: 'about', link: '/about' },
+   { name: 'about us', link: '/about' },
+   { name: 'schedules', link: '/schedules' },
+   { name: 'donations', link: '/donations' },
 ]
 
 export const Header = () => {
