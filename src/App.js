@@ -2,7 +2,7 @@ import { Dialogs, Footer, Header, Main, Msg } from './cmps'
 
 function App() {
 
-   document.title = 'Vito'
+   document.title = 'wckollel'
 
    return (
       <div className="App" >
