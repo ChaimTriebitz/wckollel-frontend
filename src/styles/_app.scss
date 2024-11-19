@@ -13,11 +13,11 @@
 }
 
 ::-webkit-scrollbar-track {
-   background: $c2;
+   background: $c-background;
 }
 
 ::-webkit-scrollbar-thumb {
-   background: $c1;
+   background: $c-txt;
    border-radius: 5px;
 }
 
@@ -27,4 +27,3 @@
    cursor: pointer;
    border-radius: 5px;
 }
-

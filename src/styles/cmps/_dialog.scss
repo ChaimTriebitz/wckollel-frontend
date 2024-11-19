@@ -3,7 +3,7 @@
    z-index: 999;
    height: 100vh;
    background: rgb(0 0 0 / 0.3);
-   filter: drop-shadow(1px 1px 1px $c4);
+   filter: drop-shadow(1px 1px 1px blue);
    display: grid;
    place-items: center;
    cursor: no-drop;
@@ -12,12 +12,12 @@
       min-height: 300px;
       min-width: 250px;
       cursor: default;
-      background: $c1;
+      background: $c-txt;
       flex-direction: column;
       max-width: 95%;
       max-height: 90%;
       z-index: 999;
-      border: 4px solid $c3;
+      border: 4px solid black;
       overflow-y: hidden;
       gap: 0;
 
@@ -29,9 +29,9 @@
          justify-content: space-between;
          align-items: center;
          padding: 1em;
-         border-bottom: 4px solid $c3;
+         border-bottom: 4px solid black;
          outline-offset: 0px;
-         background: $c5;
+         background: green;
          z-index: 11;
 
          h1 {
@@ -49,4 +49,3 @@
       }
    }
 }
-

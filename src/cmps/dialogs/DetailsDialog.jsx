@@ -11,7 +11,7 @@ export const DetailsDialog = () => {
    const { row } = dialogs.details
    const { lender } = row
 
-   const { values, handleChange, changedValues, isValuesChanged, restart } = useForm(objects.filterFields(row, DIALOG_HEADERS.map(field => field.internal_name)))
+   const { values, handleChange, changedValues, isValuesChanged, restart } = useForm({})
    const { closeDialog, dialogRef, } = useDialog('details')
 
    const handleSave = (e) => {
