@@ -14,7 +14,7 @@ export const Header = () => {
    return (
       <header className='header'>
          <img src={logo} alt="wckollel logo" />
-         <nav>
+         <nav className={isMenuOpen ? 'open' : ''}>
             {
                links.map(link =>
                   <NavLink

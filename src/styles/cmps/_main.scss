@@ -1,0 +1,26 @@
+main {
+   flex-direction: column;
+   margin-top: 80px;
+
+   &.home {
+
+      .banner {
+         background-repeat: no-repeat;
+         background-image:
+            linear-gradient(#ffffff50 50%, #ffffff85 75%, #ffffff90 100%),
+            url('../../assets/imgs/home.jpg'), ;
+         background-attachment: fixed;
+         background-size: cover;
+         flex-direction: column;
+         h1 {
+            color: $c-background;
+            font-size: 2.5vw;
+            font-weight: 700;
+            text-align: center;
+            padding: 1em;
+         }
+      }
+   }
+
+
+}

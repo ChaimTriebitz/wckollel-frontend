@@ -10,13 +10,11 @@ export const Main = () => {
    //    )
    // }, [])
    return (
-      <main className='main cmp'>
-         <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/schedules' element={<Schedules />} />
-            <Route path='/donations' element={<Donations />} />
-         </Routes>
-      </main>
+      <Routes>
+         <Route path='/' element={<Home />} />
+         <Route path='/about' element={<About />} />
+         <Route path='/schedules' element={<Schedules />} />
+         <Route path='/donations' element={<Donations />} />
+      </Routes>
    )
 }
