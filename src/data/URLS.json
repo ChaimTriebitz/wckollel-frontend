@@ -1,5 +1,5 @@
 {
-   "base": "https://starter/",
+   "base": "http://localhost:5000/",
    "auth": {
       "register": "api/auth/register",
       "login": "api/auth/login"
@@ -9,5 +9,8 @@
       "get": "api/data",
       "remove": "api/data/remove",
       "update": "api/data/update"
+   },
+   "zmanim":{
+   "get":"api/zmanim"
    }
 }

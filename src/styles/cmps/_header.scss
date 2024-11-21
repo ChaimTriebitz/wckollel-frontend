@@ -3,22 +3,59 @@
    background: $c-txt;
    padding: 1em 2em;
    justify-content: space-between;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   z-index: 10;
 
-   .logo {
+   img {
       max-width: 200px;
    }
 
-   .nav {
-      flex: 1;
+   nav {
+      position: relative;
+      transition: none;
+      background: none;
+      justify-content: space-between;
       gap: 1em;
-      justify-content: flex-end;
+      text-align: left;
+      transform: scale(1, 1);
 
-      .link {
+      a {
          display: flex;
+         position: relative;
          align-items: center;
          color: $c-background;
          font-size: 1.1em;
-         text-decoration: underline;
+         font-weight: 600;
+
+         &:hover,
+         &.active {
+            &::after {
+               transform: scale(1, 1);
+            }
+         }
+
+         &::after {
+            content: '';
+            background: $c-background;
+            display: block;
+            position: absolute;
+            bottom: 0%;
+            left: -5%;
+            right: -5%;
+            height: 4px;
+            transform: scale(0, 1);
+            transition: transform ease-in-out 250ms;
+         }
+      }
+   }
+
+   button {
+      display: none;
+      @media (max-width:900px) {
+         display: flex;
       }
    }
 }

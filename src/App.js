@@ -9,6 +9,7 @@ function App() {
          <Msg />
          <Dialogs />
          <Header />
+
          <Main />
          <Footer />
       </div>
