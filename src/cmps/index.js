@@ -2,6 +2,7 @@ import { Header } from './Header.jsx'
 import { Main } from './Main.jsx'
 import { Footer } from './Footer.jsx'
 import { Msg } from './Msg.jsx'
+import { Table } from './Table.jsx'
 
 // INPUTS
 import { Select } from './inputs/Select.jsx'
@@ -21,6 +22,7 @@ import { ConfirmDialog } from './dialogs/ConfirmDialog.jsx'
 
 
 export {
+   Table,
    ConfirmDialog,
    MultiSelect,
    Select,

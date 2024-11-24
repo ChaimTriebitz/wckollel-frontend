@@ -1,6 +1,6 @@
 .header {
    height: 10vh;
-   background: $c-txt;
+   background: $c-background;
    padding: 1em 2em;
    justify-content: space-between;
    position: fixed;
@@ -20,13 +20,12 @@
       justify-content: space-between;
       gap: 1em;
       text-align: left;
-      transform: scale(1, 1);
 
       a {
          display: flex;
          position: relative;
          align-items: center;
-         color: $c-background;
+         color: $c-txt;
          font-size: 1.1em;
          font-weight: 600;
 
@@ -39,23 +38,99 @@
 
          &::after {
             content: '';
-            background: $c-background;
+            background: $c-txt;
             display: block;
             position: absolute;
             bottom: 0%;
             left: -5%;
             right: -5%;
-            height: 4px;
+            height: 2.5px;
             transform: scale(0, 1);
             transition: transform ease-in-out 250ms;
          }
       }
    }
 
+   @media (max-width:900px) {
+      nav {
+         background: $c-background;
+         position: absolute;
+         top: 100%;
+         left: 0;
+         right: 0;
+         transform: scale(1, 0);
+         transform-origin: top;
+         transition: transform 400ms ease-in-out;
+         padding: 1em;
+         flex-direction: column;
+
+         &.open {
+            transform: scale(1, 1);
+
+            a {
+               opacity: 1;
+               transition: opacity 250ms ease-in-out 250ms;
+            }
+         }
+
+         a {
+            color: $c-txt;
+            opacity: 0;
+            transition: opacity 150ms ease-in-out;
+
+            &:hover,
+            &.active {
+               color: white;
+            }
+
+            &::after {
+               content: none;
+            }
+         }
+      }
+   }
+
    button {
       display: none;
+      justify-content: flex-end;
+      position: relative;
+
       @media (max-width:900px) {
          display: flex;
+
+         svg {
+            height: 48px;
+         }
+
+         .top_bar,
+         .bottom_bar {
+            stroke-dasharray: 240px 910px;
+         }
+
+         .middle_bar {
+            stroke-dasharray: 240px 240px;
+         }
+
+         svg path {
+            stroke-width: 30;
+            stroke-linecap: round;
+            stroke: $c-txt;
+            fill: none;
+            transition: all .5s ease-in-out;
+         }
+
+         &.open {
+
+            .top_bar,
+            .bottom_bar {
+               stroke-dashoffset: -650px;
+            }
+
+            .middle_bar {
+               stroke-dasharray: 0px 220px;
+               stroke-dashoffset: -120px;
+            }
+         }
       }
    }
 }

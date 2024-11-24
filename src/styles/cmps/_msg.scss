@@ -1,4 +1,5 @@
 .msg {
+   display: none;
    z-index: 100000;
    padding: 1em 3em 1em 1em;
    background: gray;
@@ -67,6 +68,7 @@
    }
 
    &.show {
+      display: flex;
       pointer-events: auto;
       animation: show_slide 1s ease forwards;
       opacity: 1;
