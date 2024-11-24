@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link, useNavigate } from 'react-router-dom'
-import { useDialog, useForm, useGlobalState, useLogInUser } from '../../hooks'
+import { useForm, useLogInUser } from '../../hooks'
+import { DATA, URLS } from '../../data'
 
 export const Login = () => {
    const { values, handleChange } = useForm({ username: '', password: '' })
-
 
    const login = useLogInUser()
    const [err, setErr] = useState('')
@@ -15,9 +14,9 @@ export const Login = () => {
       e.preventDefault()
 
       try {
-         const { data } = await axios.post(`https://starter/api/auth/login`, { ...values })
+         const { data } = await axios.post(`${URLS.base}${URLS.auth.login}`, { ...values })
          if (data.success) {
-            localStorage.setItem('vito', data.token)
+            localStorage.setItem(DATA.LOCAL_STORAGE_TOKEN, data.token)
             login()
          }
       } catch (error) {

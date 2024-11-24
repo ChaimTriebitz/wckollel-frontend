@@ -2,13 +2,14 @@
    "base": "http://localhost:5000/",
    "auth": {
       "register": "api/auth/register",
-      "login": "api/auth/login"
+      "login": "api/auth/login",
+      "private":"api/auth/private"
    },
-   "data": {
-      "create": "api/data/create",
-      "get": "api/data",
-      "remove": "api/data/remove",
-      "update": "api/data/update"
+   "schedule": {
+      "create": "api/schedule/create",
+      "get": "api/schedule",
+      "remove": "api/schedule/remove",
+      "update": "api/schedule/update"
    },
    "zmanim":{
    "get":"api/zmanim"

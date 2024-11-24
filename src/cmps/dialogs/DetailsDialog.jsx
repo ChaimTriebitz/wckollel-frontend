@@ -9,14 +9,12 @@ export const DetailsDialog = () => {
 
    const { dialogs } = useGlobalState()
    const { row } = dialogs.details
-   const { lender } = row
 
    const { values, handleChange, changedValues, isValuesChanged, restart } = useForm({})
    const { closeDialog, dialogRef, } = useDialog('details')
 
    const handleSave = (e) => {
       e.preventDefault()
-      update.bank(row._id, values)
    }
 
    return (
@@ -24,7 +22,7 @@ export const DetailsDialog = () => {
          <div className="dialog-content">
 
             <header>
-               <h1>{lender}</h1>
+               <h1>{row?.name}</h1>
                <section className='btns'>
                   {isValuesChanged && <button type='submit' >{svgs.save}</button>}
                   <button type='button' onClick={closeDialog}>{svgs.clear}</button>
