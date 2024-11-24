@@ -27,8 +27,8 @@ html:focus-within {
 }
 
 body {
-   color: $c-background;
-   background: $c-background;
+   color: $c2;
+   background: $c2;
    text-rendering: optimizeSpeed;
    line-height: 1.4;
    font-size: 16px;
@@ -101,7 +101,7 @@ textarea {
 }
 
 input {
-   background: green;
+   background: white;
    padding: 0.25em 0.5em;
    border-radius: 15px;
    font-size: 1.1em;
@@ -112,7 +112,7 @@ input {
 select {
    cursor: pointer;
    color: white;
-   background: green;
+   background: white;
    padding: 0.25em 0.25em 0.25em 0.5em;
    border-radius: 15px;
    font-size: 1.1em;

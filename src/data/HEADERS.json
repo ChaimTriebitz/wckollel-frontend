@@ -1,0 +1,20 @@
+{
+   "scheduler": [
+      {
+         "name": "Date",
+         "internal_name": "date"
+      },
+      {
+         "name": "Shacharit",
+         "internal_name": "shacharit"
+      },
+      {
+         "name": "Mincha",
+         "internal_name": "mincha"
+      },
+      {
+         "name": "Arvit",
+         "internal_name": "arvit"
+      }
+   ]
+}

@@ -3,25 +3,31 @@
    gap: 1em;
    padding: 1em;
 
+   &.login {
+      background: black;
+   }
+
+   h1 {
+      color: white;
+   }
+
    .error {
       text-align: center;
       color: $c-danger;
       height: 1.5em;
    }
 
-
-   
    .input {
       position: relative;
       justify-content: space-between;
       align-items: baseline;
-   
+
       >* {
          flex: 1;
       }
-   
+
       label {
-         color: yellow;
+         color: $c1;
       }
    }
 }

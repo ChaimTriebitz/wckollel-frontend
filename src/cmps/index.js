@@ -4,6 +4,9 @@ import { Footer } from './Footer.jsx'
 import { Msg } from './Msg.jsx'
 import { Table } from './Table.jsx'
 
+// ADMIN
+import { Scheduler } from './admin/Scheduler.jsx'
+
 // INPUTS
 import { Select } from './inputs/Select.jsx'
 import { Input } from './inputs/Input.jsx'
@@ -22,6 +25,7 @@ import { ConfirmDialog } from './dialogs/ConfirmDialog.jsx'
 
 
 export {
+   // Scheduler,
    Table,
    ConfirmDialog,
    MultiSelect,

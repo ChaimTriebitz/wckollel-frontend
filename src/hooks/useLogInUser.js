@@ -7,7 +7,7 @@ export const useLogInUser = () => {
    const { dispatch } = useGlobalState()
    return async () => {
       try {
-         const { data } = await axios.get(`${URLS.base}${URLS.auth.private}`, {
+         const { data } = await axios.get(`${URLS.base}${URLS.private.get}`, {
             headers: {
                "Content-Type": "application/json",
                "Authorization": `Bearer ${localStorage.getItem(DATA.LOCAL_STORAGE_TOKEN)}`

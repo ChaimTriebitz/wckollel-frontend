@@ -1,6 +1,6 @@
 .header {
    height: 10vh;
-   background: $c-background;
+   background: $c3;
    padding: 1em 2em;
    justify-content: space-between;
    position: fixed;
@@ -25,7 +25,7 @@
          display: flex;
          position: relative;
          align-items: center;
-         color: $c-txt;
+         color: $c1;
          font-size: 1.1em;
          font-weight: 600;
 
@@ -38,7 +38,7 @@
 
          &::after {
             content: '';
-            background: $c-txt;
+            background: $c1;
             display: block;
             position: absolute;
             bottom: 0%;
@@ -53,7 +53,7 @@
 
    @media (max-width:900px) {
       nav {
-         background: $c-background;
+         background: $c2;
          position: absolute;
          top: 100%;
          left: 0;
@@ -74,7 +74,7 @@
          }
 
          a {
-            color: $c-txt;
+            color: $c1;
             opacity: 0;
             transition: opacity 150ms ease-in-out;
 
@@ -114,7 +114,7 @@
          svg path {
             stroke-width: 30;
             stroke-linecap: round;
-            stroke: $c-txt;
+            stroke: $c1;
             fill: none;
             transition: all .5s ease-in-out;
          }

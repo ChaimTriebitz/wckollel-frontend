@@ -2,5 +2,31 @@
    "auth": {
       "login": {},
       "register": {}
-   }
+   },
+   "scheduler": [
+      {
+         "name": "Date",
+         "internal_name": "date",
+         "element": "input",
+         "type": "date"
+      },
+      {
+         "name": "Shacharit",
+         "internal_name": "shacharit",
+         "element": "input",
+         "type": "time"
+      },
+      {
+         "name": "Mincha",
+         "internal_name": "mincha",
+         "element": "input",
+         "type": "time"
+      },
+      {
+         "name": "Arvit",
+         "internal_name": "arvit",
+         "element": "input",
+         "type": "time"
+      }
+   ]
 }
