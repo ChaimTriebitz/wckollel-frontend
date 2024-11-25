@@ -13,7 +13,7 @@ export const Admin = () => {
       <main className='main'>
 
          {/* {!loggedInUser && <Login />} */}
-         {!loggedInUser && <Scheduler />}
+         {<Scheduler />}
       </main>
    )
 }

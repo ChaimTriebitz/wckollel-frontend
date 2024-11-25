@@ -17,17 +17,16 @@ export const Scheduler = () => {
    } = useForm(FIELDS.scheduler.map(field => ({ [field.internal_name]: null })))
 
    useEffect(() => {
-      get.schedules().then((res) => dispatch({ type: ACTIONS.SET, entity: 'schedules', payload: res.data }))
+      get.schedules().then((res) => dispatch({ type: ACTIONS.SET, entity: 'schedules', payload: res?.data }))
    }, [])
 
    const handleSave = (e) => {
       e.preventDefault()
       create.schedule(values)
    }
-   console.log(schedules);
 
    return (
-      <div className='scheduler'>
+      <div className='scheduler column'>
          <form onSubmit={handleSave} className='form'>
             {
                FIELDS.scheduler.map(header =>

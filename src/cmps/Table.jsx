@@ -18,9 +18,9 @@ export const Table = ({ headers, rows }) => {
                      <tr key={row._id || Math.random()}>
                         {
                            headers.map((header) =>
-                              <td key={header.name} className={header.cell_type}>
+                              <td key={header.name}>
                                  <span className='mobile-header'>{header.name}</span>
-                                 <h6>{row[header]}</h6>
+                                 <h6>{row[header.internal_name]}</h6>
                               </td>
                            )
                         }
