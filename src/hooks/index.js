@@ -8,10 +8,12 @@ import { useKeyPress } from './useKeyPress.js'
 import { useForm } from './useForm.js'
 import { useBlur } from './useBlur.js'
 import { useChangedValues } from './useChangedValues.js'
+import { useScrollToTop } from './useScrollToTop.js'
 
 
 
 export {
+   useScrollToTop,
    useChangedValues,
    useBlur,
    useForm,
