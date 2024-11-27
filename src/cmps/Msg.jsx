@@ -30,8 +30,8 @@ export const Msg = () => {
 
    const getIcon = () => {
       switch (msg?.type) {
-         case 'success': return svgs.check || '✅'
-         case 'warning': return svgs.exclamation || '!'
+         case 'success': return '✅'
+         case 'warning': return '!'
          default: return ''
       }
    }
@@ -40,7 +40,7 @@ export const Msg = () => {
       <div className={`msg ${msg ? 'show' : ''} ${isHidden ? 'hide' : ''} ${msg ? msg.type : ''}`}>
          <span>{getIcon()}</span>
          <h1>{msg ? msg.txt : ''}</h1>
-         <button className="close-btn" onClick={() => hideMsg(0)}>{svgs.clear || '❌'}</button>
+         <button className="close-btn" onClick={() => hideMsg(0)}>{'❌'}</button>
       </div>
    )
 }

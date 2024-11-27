@@ -1,5 +1,5 @@
 {
-   "base": "http://localhost:5000/",
+   "base": "https://wckollel-backend.onrender.com/",
    "auth": {
       "register": "api/auth/register",
       "login": "api/auth/login"

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Cells } from './Cells'
 
 export const Table = ({ headers, rows }) => {
 
@@ -18,9 +19,9 @@ export const Table = ({ headers, rows }) => {
                      <tr key={row._id || Math.random()}>
                         {
                            headers.map((header) =>
-                              <td key={header.name}>
+                              <td key={header.name} className={header.cell_type}>
                                  <span className='mobile-header'>{header.name}</span>
-                                 <h6>{row[header.internal_name]}</h6>
+                                 <Cells header={header} row={row} />
                               </td>
                            )
                         }

@@ -1,5 +1,12 @@
 export const strings = {
-   ampm
+   ampm,
+   monthday,
+}
+
+function monthday(date) {
+   const value = new Date(date);
+   const options = { month: "short", day: "numeric" };
+   return value.toLocaleDateString("en-US", options);
 }
 
 function ampm(time) {

@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
 import { useForm, useGlobalState } from '../../hooks'
 import { FIELDS, HEADERS } from '../../data'
-import { Input } from '../inputs/Input'
 import { create, get } from '../../controllers'
-import { Table } from '../Table'
 import { ACTIONS } from '../../state'
+import { Input, Table } from '../../cmps'
 
 export const Scheduler = () => {
    const { schedules, dispatch } = useGlobalState()

@@ -107,6 +107,13 @@ input {
    font-size: 1.1em;
    font-weight: 400;
    min-height: 25px;
+   &[type=checkbox]{
+      aspect-ratio: 1;
+      width: 25px;
+      height: 22px;
+      outline: 2px solid #F0AD4E;
+      outline-offset: -3px;
+   }
 }
 
 select {
