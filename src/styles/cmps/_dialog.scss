@@ -3,7 +3,7 @@
    z-index: 999;
    height: 100vh;
    background: rgb(0 0 0 / 0.3);
-   filter: drop-shadow(1px 1px 1px blue);
+   filter: drop-shadow(1px 1px 1px $c3);
    display: grid;
    place-items: center;
    cursor: no-drop;
@@ -12,7 +12,7 @@
       min-height: 300px;
       min-width: 250px;
       cursor: default;
-      background: $c-txt;
+      background: $c2;
       flex-direction: column;
       max-width: 95%;
       max-height: 90%;
@@ -31,7 +31,7 @@
          padding: 1em;
          border-bottom: 4px solid black;
          outline-offset: 0px;
-         background: green;
+         background: $c3;
          z-index: 11;
 
          h1 {

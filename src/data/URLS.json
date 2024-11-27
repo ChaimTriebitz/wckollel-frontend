@@ -1,16 +1,19 @@
 {
-   "base": "http://localhost:5000/",
+   "base": "https://wckollel-backend.onrender.com/",
    "auth": {
       "register": "api/auth/register",
       "login": "api/auth/login"
    },
-   "data": {
-      "create": "api/data/create",
-      "get": "api/data",
-      "remove": "api/data/remove",
-      "update": "api/data/update"
+   "private": {
+      "get": "api/private"
    },
-   "zmanim":{
-   "get":"api/zmanim"
+   "schedules": {
+      "create": "api/schedules/create",
+      "get": "api/schedules",
+      "remove": "api/schedules/remove",
+      "update": "api/schedules/update"
+   },
+   "zmanim": {
+      "get": "api/zmanim"
    }
 }

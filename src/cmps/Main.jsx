@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import { useEffect } from 'react'
 import { get } from '../controllers'
-import { About, Donations, Home, Schedules } from '../pages'
+import { About, Admin, Donations, Home, Schedules } from '../pages'
 
 export const Main = () => {
    // useEffect(() => {
@@ -15,6 +15,7 @@ export const Main = () => {
          <Route path='/about' element={<About />} />
          <Route path='/schedules' element={<Schedules />} />
          <Route path='/donations' element={<Donations />} />
+         <Route path='/admin' element={<Admin />} />
       </Routes>
    )
 }

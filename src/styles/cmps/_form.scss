@@ -2,6 +2,12 @@
    flex-direction: column;
    gap: 1em;
    padding: 1em;
+   background: black;
+
+
+   h1 {
+      color: white;
+   }
 
    .error {
       text-align: center;
@@ -9,19 +15,17 @@
       height: 1.5em;
    }
 
-
-   
    .input {
       position: relative;
       justify-content: space-between;
       align-items: baseline;
-   
+
       >* {
          flex: 1;
       }
-   
+
       label {
-         color: yellow;
+         color: $c1;
       }
    }
 }

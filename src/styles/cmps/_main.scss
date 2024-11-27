@@ -1,6 +1,7 @@
-main {
+.main {
    flex-direction: column;
-   margin-top: 80px;
+   margin-top: 10vh;
+   align-items: center;
 
    &.home {
 
@@ -12,8 +13,9 @@ main {
          background-attachment: fixed;
          background-size: cover;
          flex-direction: column;
+
          h1 {
-            color: $c-background;
+            color: $c2;
             font-size: 2.5vw;
             font-weight: 700;
             text-align: center;
@@ -22,5 +24,6 @@ main {
       }
    }
 
+   
 
 }

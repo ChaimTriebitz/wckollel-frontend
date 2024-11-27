@@ -2,12 +2,12 @@ import axios from 'axios';
 import { DATA, URLS } from '../data';
 
 export const create = {
-   single
+   schedule
 }
 
-async function single(data) {
+async function schedule(data) {
    try {
-      const res = await axios.post(`${URLS.base}${URLS.data.create}`, data, {
+      const res = await axios.post(`${URLS.base}${URLS.schedules.create}`, data, {
          headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${localStorage.getItem(DATA.LOCAL_STORAGE_TOKEN)}`

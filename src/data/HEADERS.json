@@ -1,31 +1,42 @@
 {
-   "auth": {
-      "login": {},
-      "register": {}
-   },
    "scheduler": [
+      {
+         "name": "Actions",
+         "cell_type": "actions",
+         "headers": [
+            {
+               "cell_type": "select"
+            },
+            {
+               "cell_type": "details"
+            },
+            {
+               "cell_type": "remove"
+            }
+         ]
+      },
       {
          "name": "Date",
          "internal_name": "date",
-         "element": "input",
+         "cell_type":"date",
          "type": "date"
       },
       {
          "name": "Shacharit",
          "internal_name": "shacharit",
-         "element": "input",
+         "cell_type":"date",
          "type": "time"
       },
       {
          "name": "Mincha",
          "internal_name": "mincha",
-         "element": "input",
+         "cell_type":"date",
          "type": "time"
       },
       {
          "name": "Arvit",
          "internal_name": "arvit",
-         "element": "input",
+         "cell_type":"date",
          "type": "time"
       }
    ]

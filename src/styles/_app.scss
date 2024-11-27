@@ -3,8 +3,10 @@
    height: 100vh;
    width: 100vw;
    gap: 0;
+}
 
-
+.column {
+   flex-direction: column;
 }
 
 ::-webkit-scrollbar {
@@ -13,11 +15,11 @@
 }
 
 ::-webkit-scrollbar-track {
-   background: $c-background;
+   background: $c2;
 }
 
 ::-webkit-scrollbar-thumb {
-   background: $c-txt;
+   background: $c1;
    border-radius: 5px;
 }
 
