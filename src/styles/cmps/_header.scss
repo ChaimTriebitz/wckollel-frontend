@@ -51,7 +51,7 @@
       }
    }
 
-   @media (max-width:900px) {
+   @media (max-width:$mobile-size) {
       nav {
          background: $c2;
          position: absolute;
@@ -95,7 +95,7 @@
       justify-content: flex-end;
       position: relative;
 
-      @media (max-width:900px) {
+      @media (max-width:$mobile-size) {
          display: flex;
 
          svg {

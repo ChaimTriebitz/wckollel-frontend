@@ -48,9 +48,7 @@ export const Home = () => {
                         <h1>{d.h1}</h1>
                         <p>{d.p}</p>
                      </section>
-                     <section>
-                        <img src={d.img} alt="" />
-                     </section>
+                     <img src={d.img} alt="" />
                   </div>
                )
             }

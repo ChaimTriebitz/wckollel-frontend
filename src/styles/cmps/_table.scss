@@ -35,7 +35,7 @@
       p {
          font-size: 0.85em;
 
-         @media (max-width:700px) {
+         @media (max-width:$mobile-size) {
             font-size: 0.75em;
 
          }
@@ -48,7 +48,7 @@
          text-align: center;
 
 
-         @media (max-width:700px) {
+         @media (max-width:$mobile-size) {
             display: none;
          }
       }
@@ -58,7 +58,7 @@
          white-space: nowrap;
          text-align: center;
 
-         @media (max-width:700px) {
+         @media (max-width:$mobile-size) {
             width: 100%;
             max-width: 1000px;
             display: flex;
@@ -71,7 +71,7 @@
             display: none;
             flex-basis: 35%;
 
-            @media (max-width:700px) {
+            @media (max-width:$mobile-size) {
                display: block;
                text-align: left;
             }

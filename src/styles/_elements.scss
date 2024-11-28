@@ -34,7 +34,7 @@ body {
    font-size: 16px;
    font-family: 'Poppins', sans-serif;
 
-   @media (max-width:700px) {
+   @media (max-width:$mobile-size) {
       font-size: 14px;
    }
 }
@@ -106,7 +106,8 @@ input {
    font-size: 1.1em;
    font-weight: 400;
    min-height: 25px;
-   &[type=checkbox]{
+
+   &[type=checkbox] {
       aspect-ratio: 1;
       width: 25px;
       height: 22px;
