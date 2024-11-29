@@ -52,6 +52,46 @@ button {
    gap: 0.5em;
 }
 
+h1 {
+   font-size: 3em;
+   font-weight: 900;
+
+   @media (max-width:$mobile-size) {
+      font-size: 2em;
+      font-weight: 800;
+
+   }
+}
+
+h2 {
+   font-size: 2.5em;
+   font-weight: 800;
+
+   @media (max-width:$mobile-size) {
+      font-size: 1.5em;
+      font-weight: 700;
+
+   }
+}
+
+h3 {
+   font-size: 2em;
+   font-weight: 700;
+
+   @media (max-width:$mobile-size) {
+      font-size: 1em;
+      font-weight: 600;
+   }
+}
+
+p {
+   font-size: 1.15em;
+   @media (max-width:$mobile-size) {
+      font-size: 1em;
+   }
+}
+
+
 button {
    align-items: center;
    justify-content: center;

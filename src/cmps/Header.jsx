@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { svgs } from '../assets/svgs';
 
 const links = [
+   { name: 'HOME', link: '/' },
    { name: 'SCHEDULES', link: '/schedules' },
    { name: 'DONATIONS', link: '/donations' },
 ]
@@ -15,7 +16,7 @@ export const Header = () => {
          <Link to='/'>
             <img src={logo} alt="wckollel logo" />
          </Link>
-         <nav className={isMenuOpen ? 'open' : ''}>
+         <nav onClick={()=>setIsMenuOpen(false)} className={isMenuOpen ? 'open' : ''}>
             {
                links.map(link =>
                   <NavLink
