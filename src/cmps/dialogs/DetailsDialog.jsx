@@ -3,21 +3,25 @@ import { useChangedValues, useDialog, useForm, useGlobalState } from '../../hook
 import { svgs } from '../../assets/svgs'
 import { Input } from '..';
 import { objects } from '../../functions';
-import { update } from '../../controllers';
+import { get, update } from '../../controllers';
 import { FIELDS, HEADERS } from '../../data';
+import { toastMsg } from '../../functions/msgEvent';
+import { ACTIONS } from '../../state';
 
 export const DetailsDialog = () => {
 
-   const { dialogs } = useGlobalState()
+   const { dialogs, dispatch } = useGlobalState()
    const { row } = dialogs.details
 
    const { values, handleChange, changedValues, isValuesChanged, restart } = useForm(objects.filterFields(row, FIELDS.scheduler.map(v => v.internal_name)))
    const { closeDialog, dialogRef, } = useDialog('details')
-   console.log(values);
 
    const handleSave = () => {
-      console.log(values);
-      update.data(row.id, values)
+      update.schedule(row._id, values)
+         .then((res) => toastMsg.success(res.data.message))
+         .then(() => dispatch({ type: ACTIONS.REFRESH_DATA }))
+         .then(closeDialog)
+
    }
 
    return (

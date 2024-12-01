@@ -4,6 +4,7 @@ export const ACTIONS = {
    OPEN_DIALOG: 3,
    PUSH: 4,
    POP: 5,
+   REFRESH_DATA: 5,
 }
 
 

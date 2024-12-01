@@ -3,7 +3,8 @@ import { useForm, useGlobalState } from '../../hooks'
 import { FIELDS, HEADERS } from '../../data'
 import { create, get } from '../../controllers'
 import { ACTIONS } from '../../state'
-import { Input, Table } from '../../cmps'
+import { Input, Inputs, Table } from '../../cmps'
+import { toastMsg } from '../../functions/msgEvent'
 
 export const Scheduler = () => {
    const { schedules, dispatch } = useGlobalState()
@@ -15,13 +16,10 @@ export const Scheduler = () => {
       restart
    } = useForm(FIELDS.scheduler.map(field => ({ [field.internal_name]: null })))
 
-   useEffect(() => {
-      get.schedules().then((res) => dispatch({ type: ACTIONS.SET, entity: 'schedules', payload: res?.data }))
-   }, [])
-
    const handleSave = (e) => {
       e.preventDefault()
       create.schedule(values)
+      .then((res)=>toastMsg.success(res.data.message))
    }
 
    return (
@@ -29,7 +27,7 @@ export const Scheduler = () => {
          <form onSubmit={handleSave} className='form'>
             {
                FIELDS.scheduler.map(header =>
-                  <Input
+                  <Inputs
                      key={header.internal_name}
                      value={values[header.internal_name]}
                      field={header}
@@ -37,6 +35,7 @@ export const Scheduler = () => {
                   />
                )
             }
+
             <button className='btn success'>submit</button>
          </form>
          <Table headers={HEADERS.scheduler} rows={schedules} />

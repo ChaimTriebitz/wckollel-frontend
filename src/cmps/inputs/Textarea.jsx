@@ -1,13 +1,13 @@
-export const Input = ({
+export const Textarea = ({
    field = {},
    value,
    handleChange = () => { },
 }) => {
 
-   const { internal_name = '', type = 'text', required = false } = field
+   const { internal_name, type, name, required = false } = field
 
    return (
-      <input
+      <textarea
          type={type}
          name={internal_name}
          value={value || ''}

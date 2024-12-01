@@ -2,6 +2,7 @@
    flex-direction: column;
    margin-top: 10vh;
    align-items: center;
+   height: 100%;
 
    &.home {
       .banner {
@@ -69,8 +70,8 @@
                   height: 50%;
                }
 
-               h2{
-               text-align: center;
+               h2 {
+                  text-align: center;
                }
             }
 
@@ -104,6 +105,12 @@
 
             p {}
          }
+      }
+   }
+
+   &.admin {
+      .scheduler {
+         height: 100%;
       }
    }
 }

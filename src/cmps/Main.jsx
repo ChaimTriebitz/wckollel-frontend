@@ -5,10 +5,7 @@ import { get } from '../controllers'
 import { About, Admin, Donations, Home, Schedules } from '../pages'
 
 export const Main = () => {
-   // useEffect(() => {
-   //    get.zmanim().then((data) => console.log(data)
-   //    )
-   // }, [])
+
    return (
       <Routes>
          <Route path='/' element={<Home />} />

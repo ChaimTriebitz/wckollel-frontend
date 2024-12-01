@@ -1,4 +1,6 @@
 import { svgs } from '../../assets/svgs'
+import { get, remove } from '../../controllers'
+import { toastMsg } from '../../functions/msgEvent'
 import { useGlobalState } from '../../hooks'
 import { ACTIONS } from '../../state'
 
@@ -8,13 +10,9 @@ export const Remove = ({ row, header }) => {
 
 
    const handleRemove = () => {
-      dispatch({
-         type: ACTIONS.OPEN_DIALOG,
-         entity: 'confirm',
-         payload: {
-            row
-         }
-      })
+      remove.schedule(row._id)
+         .then((res) => toastMsg.success(res.data.message))
+         .then(() => dispatch({ type: ACTIONS.REFRESH_DATA }))
    }
    return (
       <button className='remove' onClick={handleRemove}>{svgs.trashBin}{svgs.trashCover}</button>

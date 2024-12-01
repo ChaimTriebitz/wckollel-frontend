@@ -5,7 +5,7 @@ export const strings = {
 
 function monthday(date) {
    const value = new Date(date);
-   const options = { month: "short", day: "numeric" };
+   const options = { weekday: "long", month: "short", day: "numeric" };
    return value.toLocaleDateString("en-US", options);
 }
 

@@ -167,6 +167,15 @@ select {
    height: 2em;
 }
 
+textarea{
+   background: white;
+   padding: 0.25em 0.5em;
+   border-radius: 15px;
+   font-size: 1.1em;
+   font-weight: 400;
+   min-height: 25px;
+}
+
 dialog {
    margin: auto;
    border: none;

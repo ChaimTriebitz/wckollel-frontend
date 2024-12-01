@@ -8,7 +8,9 @@ import { Scheduler } from './admin/Scheduler.jsx'
 
 // INPUTS
 import { Select } from './inputs/Select.jsx'
+import { Inputs } from './inputs/Inputs.jsx'
 import { Input } from './inputs/Input.jsx'
+import { Textarea } from './inputs/Textarea.jsx'
 import { MultiSelect } from './inputs/MultiSelect.jsx'
 
 // AUTH
@@ -33,6 +35,8 @@ import { DropDown } from './table/DropDown.jsx'
 import { Details } from './table/Details.jsx'
 
 export {
+   Inputs,
+   Textarea,
    Msg,
    Header,
    Main,

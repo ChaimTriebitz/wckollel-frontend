@@ -18,26 +18,62 @@
       {
          "name": "Date",
          "internal_name": "date",
-         "cell_type":"date",
+         "cell_type": "date",
          "type": "date"
       },
       {
          "name": "Shacharit",
          "internal_name": "shacharit",
-         "cell_type":"date",
+         "cell_type": "date",
          "type": "time"
       },
       {
          "name": "Mincha",
          "internal_name": "mincha",
-         "cell_type":"date",
+         "cell_type": "date",
          "type": "time"
       },
       {
          "name": "Arvit",
          "internal_name": "arvit",
-         "cell_type":"date",
+         "cell_type": "date",
          "type": "time"
+      },
+      {
+         "name": "Shiurim",
+         "internal_name": "shiurim",
+         "cell_type": "text"
+      }
+   ],
+   "schedules": [
+      {
+         "name": "Date",
+         "internal_name": "date",
+         "cell_type": "date",
+         "type": "date"
+      },
+      {
+         "name": "Shacharit",
+         "internal_name": "shacharit",
+         "cell_type": "date",
+         "type": "time"
+      },
+      {
+         "name": "Mincha",
+         "internal_name": "mincha",
+         "cell_type": "date",
+         "type": "time"
+      },
+      {
+         "name": "Arvit",
+         "internal_name": "arvit",
+         "cell_type": "date",
+         "type": "time"
+      },
+      {
+         "name": "Shiurim",
+         "internal_name": "shiurim",
+         "cell_type": "text"
       }
    ]
 }

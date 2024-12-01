@@ -9,7 +9,7 @@ export const Admin = () => {
    // console.log(baba);
 
    return (
-      <main className='main'>
+      <main className='main admin'>
 
          {/* {!loggedInUser && <Login />} */}
          {<Scheduler />}

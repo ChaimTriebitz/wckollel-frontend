@@ -1,6 +1,11 @@
-export const Select = ({ field, options = [], value, handleChange }) => {
+export const Select = ({
+   field = {},
+   options = [],
+   value = '',
+   handleChange = () => { }
+}) => {
 
-   const { name, internal_name, id, required = false } = field
+   const { name = '', internal_name = '', id = '', required = false } = field
 
    return (
       <select

@@ -3,7 +3,11 @@
    gap: 1em;
    padding: 1em;
    background: black;
+   min-width: 400px;
 
+   @media (max-width:$mobile-size) {
+      min-width: 350px;
+   }
 
    h1 {
       color: white;

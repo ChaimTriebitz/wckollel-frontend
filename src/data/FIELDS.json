@@ -7,26 +7,31 @@
       {
          "name": "Date",
          "internal_name": "date",
-         "element": "input",
+         "element_type": "input",
          "type": "date"
       },
       {
          "name": "Shacharit",
          "internal_name": "shacharit",
-         "element": "input",
+         "element_type": "input",
          "type": "time"
       },
       {
          "name": "Mincha",
          "internal_name": "mincha",
-         "element": "input",
+         "element_type": "input",
          "type": "time"
       },
       {
          "name": "Arvit",
          "internal_name": "arvit",
-         "element": "input",
+         "element_type": "input",
          "type": "time"
+      },
+      {
+         "name": "Shiurim",
+         "internal_name": "shiurim",
+         "element_type": "textarea"
       }
    ]
 }
