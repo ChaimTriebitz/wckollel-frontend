@@ -2,8 +2,7 @@
    flex-direction: column;
    margin-top: 10vh;
    align-items: center;
-   height: 100%;
-
+flex: 1;
    &.home {
       .banner {
          min-height: 50vh;

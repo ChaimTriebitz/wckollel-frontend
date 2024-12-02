@@ -1,3 +1,22 @@
-.footer{
-// min-height: 100px;
+.footer {
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background: $gradient3;
+   gap: 0.5em;
+   color: white;
+   padding: 1em;
+
+   .item {
+      display: flex;
+      gap: 0.5em;
+      align-items: center;
+      svg{
+         animation: tilt-shake 2s infinite;
+      }
+   }
+
+   .btn{
+   border: 1px solid $c1;
+   }
 }
