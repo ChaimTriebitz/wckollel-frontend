@@ -8,30 +8,39 @@
          "name": "Date",
          "internal_name": "date",
          "element_type": "input",
-         "type": "date"
+         "type": "date",
+         "required": true
       },
       {
-         "name": "Shacharit",
-         "internal_name": "shacharit",
+         "name": "Time",
+         "internal_name": "time_frame",
          "element_type": "input",
-         "type": "time"
+         "required": true
       },
       {
-         "name": "Mincha",
-         "internal_name": "mincha",
-         "element_type": "input",
-         "type": "time"
+         "name": "Conference room A",
+         "internal_name": "event_location_1",
+         "element_type": "input"
       },
       {
-         "name": "Arvit",
-         "internal_name": "arvit",
-         "element_type": "input",
-         "type": "time"
+         "name": "Conference room B",
+         "internal_name": "event_location_2",
+         "element_type": "input"
       },
       {
-         "name": "Shiurim",
-         "internal_name": "shiurim",
-         "element_type": "textarea"
+         "name": "Conference room C",
+         "internal_name": "event_location_3",
+         "element_type": "input"
+      },
+      {
+         "name": "Conference room D",
+         "internal_name": "event_location_4",
+         "element_type": "input"
+      },
+      {
+         "name": "Conference room E",
+         "internal_name": "event_location_5",
+         "element_type": "input"
       }
    ]
 }

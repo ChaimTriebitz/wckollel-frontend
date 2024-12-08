@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import { objects } from '../functions'
 import { useUpdateEffect } from '../hooks'
 
-export const useForm = (initValues) => {
+export const useForm = (initValues = {}) => {
 
    const [values, setValues] = useState(initValues)
    const [changedValues, setChangedValues] = useState({})

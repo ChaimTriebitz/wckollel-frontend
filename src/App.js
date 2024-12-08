@@ -17,7 +17,7 @@ function App() {
       <div className="App" >
          <Msg />
          <Dialogs />
-         <Header />
+         {/* <Header /> */}
          <Main />
          <Footer />
       </div>

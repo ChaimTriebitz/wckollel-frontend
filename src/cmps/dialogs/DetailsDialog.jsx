@@ -1,8 +1,8 @@
 import React from 'react'
 import { useChangedValues, useDialog, useForm, useGlobalState } from '../../hooks'
 import { svgs } from '../../assets/svgs'
-import { Input } from '..';
-import { objects } from '../../functions';
+import { Input, Inputs } from '..';
+import { objects, strings } from '../../functions';
 import { get, update } from '../../controllers';
 import { FIELDS, HEADERS } from '../../data';
 import { toastMsg } from '../../functions/msgEvent';
@@ -27,9 +27,8 @@ export const DetailsDialog = () => {
    return (
       <dialog className={`dialog form details`} ref={dialogRef} onClose={closeDialog} >
          <div className="dialog-content">
-
             <header>
-               <h1>{row?.name}</h1>
+               <h3>{strings.monthday(row.date)}</h3>
                <section className='btns'>
                   {isValuesChanged && <button onClick={handleSave} >{svgs.save}</button>}
                   <button type='button' onClick={closeDialog}>{svgs.clear}</button>
@@ -38,7 +37,7 @@ export const DetailsDialog = () => {
             <main >
                {
                   FIELDS.scheduler.map(header =>
-                     <Input
+                     <Inputs
                         key={header.internal_name}
                         value={values[header.internal_name]}
                         field={header}

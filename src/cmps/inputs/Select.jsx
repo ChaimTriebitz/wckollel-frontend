@@ -11,7 +11,7 @@ export const Select = ({
       <select
          name={internal_name}
          id={id}
-         onChange={(e) => handleChange(e.target.name, e.target.value)}
+         onChange={handleChange}
          value={value || ''}
          className='select'
          required={required}

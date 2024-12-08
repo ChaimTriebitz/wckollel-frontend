@@ -1,6 +1,6 @@
 import { Input, Select, Textarea } from '..'
 
-export const Inputs = ({
+export const   Inputs = ({
    field = {},
    value,
    options = [],
@@ -9,8 +9,6 @@ export const Inputs = ({
 }) => {
 
    const { internal_name, name, element_type, className } = field
-   console.log(element_type);
-   
 
    return (
       <div className={`input ${element_type} ${className}`} >

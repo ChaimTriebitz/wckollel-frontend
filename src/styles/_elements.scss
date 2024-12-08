@@ -128,8 +128,6 @@ li {
    line-height: 1.2;
 }
 
-
-
 input,
 select,
 textarea {
@@ -137,15 +135,17 @@ textarea {
    border: none;
    background: none;
    cursor: auto;
+   background: white;
+
 }
 
 input {
-   background: white;
    padding: 0.25em 0.5em;
    border-radius: 15px;
    font-size: 1.1em;
    font-weight: 400;
    min-height: 25px;
+   width: 100%;
 
    &[type=checkbox] {
       aspect-ratio: 1;
@@ -158,8 +158,6 @@ input {
 
 select {
    cursor: pointer;
-   color: white;
-   background: white;
    padding: 0.25em 0.25em 0.25em 0.5em;
    border-radius: 15px;
    font-size: 1.1em;

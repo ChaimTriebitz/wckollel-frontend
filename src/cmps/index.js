@@ -28,6 +28,8 @@ import { Table } from './table/Table.jsx'
 import { Cells } from './table/Cells.jsx'
 import { Actions } from './table/Actions.jsx'
 import { Text } from './table/Text.jsx'
+import { InputCell } from './table/InputCell.jsx'
+
 import { Date } from './table/Date.jsx'
 import { Remove } from './table/Remove.jsx'
 import { SelectRow } from './table/SelectRow.jsx'
@@ -35,6 +37,7 @@ import { DropDown } from './table/DropDown.jsx'
 import { Details } from './table/Details.jsx'
 
 export {
+   InputCell,
    Inputs,
    Textarea,
    Msg,

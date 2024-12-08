@@ -1,7 +1,7 @@
 {
    "scheduler": [
       {
-         "name": "Actions",
+         "name": "",
          "cell_type": "actions",
          "headers": [
             {
@@ -16,63 +16,65 @@
          ]
       },
       {
-         "name": "Date",
-         "internal_name": "date",
-         "cell_type": "date",
-         "type": "date"
+         "name": "Time",
+         "internal_name": "time_frame",
+         "cell_type": "input"
       },
       {
-         "name": "Shacharit",
-         "internal_name": "shacharit",
-         "cell_type": "date",
-         "type": "time"
+         "name": "room A",
+         "internal_name": "event_location_1",
+         "cell_type": "input"
       },
       {
-         "name": "Mincha",
-         "internal_name": "mincha",
-         "cell_type": "date",
-         "type": "time"
+         "name": "room B",
+         "internal_name": "event_location_2",
+         "cell_type": "input"
       },
       {
-         "name": "Arvit",
-         "internal_name": "arvit",
-         "cell_type": "date",
-         "type": "time"
+         "name": "room C",
+         "internal_name": "event_location_3",
+         "cell_type": "input"
       },
       {
-         "name": "Shiurim",
-         "internal_name": "shiurim",
-         "cell_type": "text"
+         "name": "room D",
+         "internal_name": "event_location_4",
+         "cell_type": "input"
+      },
+      {
+         "name": "room E",
+         "internal_name": "event_location_5",
+         "cell_type": "input"
       }
    ],
    "schedules": [
       {
-         "name": "Date",
-         "internal_name": "date",
-         "cell_type": "date",
-         "type": "date"
+         "name": "Time",
+         "internal_name": "time_frame",
+         "cell_type": "text"
       },
       {
-         "name": "Shacharit",
-         "internal_name": "shacharit",
-         "cell_type": "date",
-         "type": "time"
+         "name": "room A",
+         "internal_name": "event_location_1",
+         "cell_type": "text"
       },
       {
-         "name": "Mincha",
-         "internal_name": "mincha",
-         "cell_type": "date",
-         "type": "time"
+         "name": "room B",
+         "internal_name": "event_location_2",
+         "cell_type": "text"
       },
       {
-         "name": "Arvit",
-         "internal_name": "arvit",
-         "cell_type": "date",
-         "type": "time"
+         "name": "room C",
+         "internal_name": "event_location_3",
+         "cell_type": "text"
       },
       {
-         "name": "Shiurim",
-         "internal_name": "shiurim",
+         "name": "room D",
+         "internal_name": "event_location_4",
+         "cell_type": "text"
+      },
+      {
+         "name": "room E",
+         "internal_name": "event_location_5",
          "cell_type": "text"
       }
    ]

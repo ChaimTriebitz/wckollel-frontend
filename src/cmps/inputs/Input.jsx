@@ -2,6 +2,7 @@ export const Input = ({
    field = {},
    value,
    handleChange = () => { },
+   handleBlur = () => { }
 }) => {
 
    const { internal_name = '', type = 'text', required = false } = field
@@ -13,6 +14,7 @@ export const Input = ({
          value={value || ''}
          onChange={handleChange}
          required={required}
+         onBlur={handleBlur}
       />
    )
 }
