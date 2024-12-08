@@ -21,6 +21,7 @@ import { Login } from './auth/Login.jsx'
 // DIALOGS
 import { Dialogs } from './dialogs/Dialogs.jsx'
 import { DetailsDialog } from './dialogs/DetailsDialog.jsx'
+import { AddRowDialog } from './dialogs/AddRowDialog.jsx'
 import { ConfirmDialog } from './dialogs/ConfirmDialog.jsx'
 
 // TABLE
@@ -29,14 +30,16 @@ import { Cells } from './table/Cells.jsx'
 import { Actions } from './table/Actions.jsx'
 import { Text } from './table/Text.jsx'
 import { InputCell } from './table/InputCell.jsx'
-
 import { Date } from './table/Date.jsx'
 import { Remove } from './table/Remove.jsx'
 import { SelectRow } from './table/SelectRow.jsx'
 import { DropDown } from './table/DropDown.jsx'
 import { Details } from './table/Details.jsx'
+import { AddRow } from './table/AddRow.jsx'
 
 export {
+   AddRow,
+   AddRowDialog,
    InputCell,
    Inputs,
    Textarea,
