@@ -48,5 +48,22 @@
    }
 }
 
+@keyframes tilt-shake {
+
+   0%,
+   20%,
+   100% {
+      transform: rotate(0deg);
+   }
+
+   10% {
+      transform: rotate(5deg);
+   }
+
+   15% {
+      transform: rotate(-10deg);
+   }
+}
+
 
 
