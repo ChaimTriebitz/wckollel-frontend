@@ -26,11 +26,11 @@ export const Footer = () => {
             </a> */}
             <a
                className="item btn"
-               href={`mailto:baba.com`}
+               href={`mailto:wckollel@gmail.com`}
                title={'mail me'}
             >
                {svgs.email}
-               <p>baba.com</p>
+               <p>wckollel@gmail.com</p>
             </a>
          </div>
       </footer>

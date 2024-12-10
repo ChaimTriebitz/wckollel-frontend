@@ -12,14 +12,13 @@ export const AddRowDialog = () => {
    const { dialogs, dispatch } = useGlobalState()
 
    const { values, handleChange, changedValues, isValuesChanged, restart } = useForm(objects.filterFields({}, FIELDS.scheduler.map(v => v.internal_name)))
-   const { closeDialog, dialogRef, } = useDialog('details')
+   const { closeDialog, dialogRef, } = useDialog('addRow')
 
    const handleSave = () => {
       create.schedule(values)
          .then((res) => toastMsg.success(res.data.message))
          .then(() => dispatch({ type: ACTIONS.REFRESH_DATA }))
          .then(closeDialog)
-
    }
 
    return (
@@ -29,7 +28,7 @@ export const AddRowDialog = () => {
                <h3>Add Row</h3>
                <section className='btns'>
                   {isValuesChanged && <button onClick={handleSave} >{svgs.save}</button>}
-                  <button type='button' onClick={closeDialog}>{svgs.clear}</button>
+                  <button onClick={closeDialog}>{svgs.clear}</button>
                </section>
             </header>
             <main >

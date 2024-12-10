@@ -1,5 +1,7 @@
 export const initialState = {
+   page: '',
    refreshCount: 0,
    loggedInUser: null,
-   schedules: []
+   schedules: [],
+   isDataLoading: true,
 }

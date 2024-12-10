@@ -5,12 +5,6 @@
          "cell_type": "actions",
          "headers": [
             {
-               "cell_type": "select"
-            },
-            {
-               "cell_type": "details"
-            },
-            {
                "cell_type": "remove"
             }
          ]

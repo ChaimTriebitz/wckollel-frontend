@@ -5,19 +5,24 @@ import { get } from './controllers'
 import { ACTIONS } from './state'
 
 function App() {
-   const { dispatch, refreshCount } = useGlobalState()
+
+   const { dispatch, refreshCount, page } = useGlobalState()
+
+   document.title = `wckollel - ${page || 'home'}`
 
    useScrollToTop()
-   document.title = 'wckollel'
+
    useEffect(() => {
-      get.schedules().then((res) => dispatch({ type: ACTIONS.SET, entity: 'schedules', payload: res.data }))
+      get.schedules()
+         .then((res) => dispatch({ type: ACTIONS.SET, entity: 'schedules', payload: res.data }))
+         .then(() => dispatch({ type: ACTIONS.SET, entity: 'isDataLoading', payload: false }))
    }, [refreshCount])
 
    return (
       <div className="App" >
          <Msg />
          <Dialogs />
-         {/* <Header /> */}
+         <Header />
          <Main />
          <Footer />
       </div>

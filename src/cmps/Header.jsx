@@ -1,7 +1,9 @@
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import logo from '../assets/imgs/wckollel.jpg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { svgs } from '../assets/svgs';
+import { ACTIONS } from '../state';
+import { useGlobalState } from '../hooks';
 
 const links = [
    { name: 'HOME', link: '/' },
@@ -10,6 +12,14 @@ const links = [
 ]
 
 export const Header = () => {
+   const { dispatch } = useGlobalState()
+
+   const { pathname } = useLocation()
+
+   useEffect(() => {
+      dispatch({ type: ACTIONS.SET, entity: 'page', payload: pathname.replace(/^\/+/, '') })
+   }, [pathname])
+
    const [isMenuOpen, setIsMenuOpen] = useState(false)
    return (
       <header className='header'>

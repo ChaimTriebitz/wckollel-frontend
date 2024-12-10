@@ -1,15 +1,19 @@
 import React from 'react'
 import { Cells } from './Cells'
+import { useGlobalState } from '../../hooks'
 
 export const Table = ({ headers = [], rows = [] }) => {
 
+   const { isDataLoading } = useGlobalState()
+
    return (
       <div className="table-container">
+         {isDataLoading && < div className='loader' id='sandwatchloader' />}
          <table>
             <thead>
                <tr>
                   {
-                     headers.map(header => <th key={header.name}>{header.name}</th>)
+                     rows.length > 1 && headers.map(header => <th key={header.name}>{header.name}</th>)
                   }
                </tr>
             </thead>

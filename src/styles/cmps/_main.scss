@@ -2,7 +2,8 @@
    flex-direction: column;
    margin-top: 10vh;
    align-items: center;
-flex: 1;
+   flex: 1;
+
    &.home {
       .banner {
          min-height: 50vh;
@@ -108,6 +109,39 @@ flex: 1;
    }
 
    &.admin {
+      gap: 2em;
+      padding: 2em;
 
+      .day {
+         padding: 2em;
+         flex-direction: column;
+         background: $c3;
+
+         h3 {
+            text-align: center;
+            color: white;
+            text-decoration: underline;
+         }
+      }
+   }
+
+   &.schedule {
+      padding: 2em;
+      gap: 2em;
+
+      .table-container {
+         padding: 2em;
+         background: url('../../assets/imgs/home-2.jpg');
+      }
+
+      table {
+         opacity: 0.95;
+         border-collapse: initial;
+         table-layout: fixed;
+
+         thead {
+            background: $c3;
+         }
+      }
    }
 }
