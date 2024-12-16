@@ -5,41 +5,44 @@
    },
    "scheduler": [
       {
-         "name": "Date",
-         "internal_name": "date",
-         "element_type": "input",
-         "type": "date",
-         "required": true
-      },
-      {
          "name": "Time",
          "internal_name": "time_frame",
          "element_type": "input",
          "required": true
       },
       {
-         "name": "Conference room A",
-         "internal_name": "event_location_1",
+         "name": "Sunday",
+         "internal_name": "sunday",
          "element_type": "input"
       },
       {
-         "name": "Conference room B",
-         "internal_name": "event_location_2",
+         "name": "Monday",
+         "internal_name": "monday",
          "element_type": "input"
       },
       {
-         "name": "Conference room C",
-         "internal_name": "event_location_3",
+         "name": "Tuesday",
+         "internal_name": "tuesday",
          "element_type": "input"
       },
       {
-         "name": "Conference room D",
-         "internal_name": "event_location_4",
+         "name": "Wednesday",
+         "internal_name": "wednesday",
          "element_type": "input"
       },
       {
-         "name": "Conference room E",
-         "internal_name": "event_location_5",
+         "name": "Thursday",
+         "internal_name": "thursday",
+         "element_type": "input"
+      },
+      {
+         "name": "Friday",
+         "internal_name": "friday",
+         "element_type": "input"
+      },
+      {
+         "name": "Saturday",
+         "internal_name": "saturday",
          "element_type": "input"
       }
    ]

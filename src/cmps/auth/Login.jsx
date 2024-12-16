@@ -15,8 +15,6 @@ export const Login = () => {
 
       try {
          const res = await axios.post(`${URLS.base}${URLS.auth.login}`, { ...values })
-         console.log(res);
-
          const data = res?.data
          if (data.success) {
             localStorage.setItem(DATA.LOCAL_STORAGE_TOKEN, data.token)
@@ -30,7 +28,7 @@ export const Login = () => {
 
    return (
       <form className='login form' onSubmit={handleSubmit}>
-         <h1>Login</h1>
+         <h4>Login</h4>
          <div className="input">
             <label htmlFor="username">username</label>
             <input

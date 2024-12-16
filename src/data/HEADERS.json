@@ -15,28 +15,38 @@
          "cell_type": "input"
       },
       {
-         "name": "room A",
-         "internal_name": "event_location_1",
+         "name": "Sunday",
+         "internal_name": "sunday",
          "cell_type": "input"
       },
       {
-         "name": "room B",
-         "internal_name": "event_location_2",
+         "name": "Monday",
+         "internal_name": "monday",
          "cell_type": "input"
       },
       {
-         "name": "room C",
-         "internal_name": "event_location_3",
+         "name": "Tuesday",
+         "internal_name": "tuesday",
          "cell_type": "input"
       },
       {
-         "name": "room D",
-         "internal_name": "event_location_4",
+         "name": "Wednesday",
+         "internal_name": "wednesday",
          "cell_type": "input"
       },
       {
-         "name": "room E",
-         "internal_name": "event_location_5",
+         "name": "Thursday",
+         "internal_name": "thursday",
+         "cell_type": "input"
+      },
+      {
+         "name": "Friday",
+         "internal_name": "friday",
+         "cell_type": "input"
+      },
+      {
+         "name": "Saturday",
+         "internal_name": "saturday",
          "cell_type": "input"
       }
    ],
@@ -47,28 +57,38 @@
          "cell_type": "text"
       },
       {
-         "name": "room A",
-         "internal_name": "event_location_1",
+         "name": "Sunday",
+         "internal_name": "sunday",
          "cell_type": "text"
       },
       {
-         "name": "room B",
-         "internal_name": "event_location_2",
+         "name": "Monday",
+         "internal_name": "monday",
          "cell_type": "text"
       },
       {
-         "name": "room C",
-         "internal_name": "event_location_3",
+         "name": "Tuesday",
+         "internal_name": "tuesday",
          "cell_type": "text"
       },
       {
-         "name": "room D",
-         "internal_name": "event_location_4",
+         "name": "Wednesday",
+         "internal_name": "wednesday",
          "cell_type": "text"
       },
       {
-         "name": "room E",
-         "internal_name": "event_location_5",
+         "name": "Thursday",
+         "internal_name": "thursday",
+         "cell_type": "text"
+      },
+      {
+         "name": "Friday",
+         "internal_name": "friday",
+         "cell_type": "text"
+      },
+      {
+         "name": "Saturday",
+         "internal_name": "saturday",
          "cell_type": "text"
       }
    ]

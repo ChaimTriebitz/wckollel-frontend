@@ -13,7 +13,7 @@ export const Table = ({ headers = [], rows = [] }) => {
             <thead>
                <tr>
                   {
-                     rows.length > 1 && headers.map(header => <th key={header.name}>{header.name}</th>)
+                     rows.length > 0 && headers.map(header => <th key={header.name}>{header.name}</th>)
                   }
                </tr>
             </thead>

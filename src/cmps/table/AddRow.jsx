@@ -6,12 +6,11 @@ import { create } from '../../controllers'
 import { FIELDS } from '../../data'
 import { objects } from '../../functions'
 
-export const AddRow = ({ date }) => {
+export const AddRow = () => {
    const { dispatch } = useGlobalState()
 
    const handleClick = () => {
-      create.schedule(objects.filterFields({ date }, FIELDS.scheduler.map(v => v.internal_name)))
-         .then(() => dispatch({ type: ACTIONS.REFRESH_DATA }))
+      dispatch({ type: ACTIONS.OPEN_DIALOG, entity: 'addRow' })
    }
    return (
       <button onClick={handleClick}>{svgs.plus}</button>
