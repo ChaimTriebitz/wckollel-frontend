@@ -5,6 +5,34 @@
    },
    "scheduler": [
       {
+         "name": "Week",
+         "internal_name": "week",
+         "element_type": "select",
+         "required": true,
+         "options": [
+            {
+               "option_display": 1,
+               "option_value": 1,
+               "id": 1
+            },
+            {
+               "option_display": 2,
+               "option_value": 2,
+               "id": 2
+            },
+            {
+               "option_display": 3,
+               "option_value": 3,
+               "id": 3
+            },
+            {
+               "option_display": 4,
+               "option_value": 4,
+               "id": 4
+            }
+         ]
+      },
+      {
          "name": "Time",
          "internal_name": "time_frame",
          "element_type": "input",

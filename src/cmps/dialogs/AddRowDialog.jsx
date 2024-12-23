@@ -19,6 +19,7 @@ export const AddRowDialog = () => {
          .then((res) => toastMsg.success(res.data.message))
          .then(() => dispatch({ type: ACTIONS.REFRESH_DATA }))
          .then(closeDialog)
+         .catch((err) => toastMsg.error(err.response.data.message))
    }
 
    return (
@@ -33,12 +34,13 @@ export const AddRowDialog = () => {
             </header>
             <main >
                {
-                  FIELDS.scheduler.map(header =>
+                  FIELDS.scheduler.map(field =>
                      <Inputs
-                        key={header.internal_name}
-                        value={values[header.internal_name]}
-                        field={header}
+                        key={field.internal_name}
+                        value={values[field.internal_name]}
+                        field={field}
                         handleChange={handleChange}
+                        options={field.options}
                      />
                   )
                }

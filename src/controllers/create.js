@@ -13,9 +13,8 @@ async function schedule(data) {
             "Authorization": `Bearer ${localStorage.getItem(DATA.LOCAL_STORAGE_TOKEN)}`
          }
       });
-
       return res;
    } catch (err) {
-      console.error(err);
+      throw err
    }
 }

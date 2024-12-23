@@ -75,23 +75,10 @@
                }
             }
 
-            // &:nth-child(even) {
-            //    align-items: flex-start;
-
-
-
-            //    img {
-            //       transform: translateX(100%);
-            //    }
-            // }
-
             img {
                background: $c1;
                border-radius: 10px;
                box-shadow: 0 0 10px #00000060;
-               // @media (max-width:$mobile-size) {
-               //    flex-direction: column-reverse;
-               // }
             }
 
             section {
@@ -109,13 +96,12 @@
    }
 
    &.admin {
-      gap: 2em;
-      padding: 2em;
-
-      .day {
-         padding: 2em;
+      padding: 1em;
+      
+      .week {
+         padding: 1em;
          flex-direction: column;
-         background: $c3;
+         background: $c2;
 
          h3 {
             text-align: center;
@@ -127,15 +113,18 @@
 
    &.schedule {
       padding: 2em;
-      gap: 2em;
-
-      h3 {
-         color: white;
+      @media (max-width:$mobile-size) {
+         padding: 1em;
       }
+      .week {
+         flex-direction: column;
+         background: $c2;
 
-      .table-container {
-         padding: 2em;
-         background: url('../../assets/imgs/home-2.jpg');
+         h3 {
+            text-align: center;
+            color: white;
+            text-decoration: underline;
+         }
       }
 
       table {

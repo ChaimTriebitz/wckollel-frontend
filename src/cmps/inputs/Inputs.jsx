@@ -1,6 +1,6 @@
 import { Input, Select, Textarea } from '..'
 
-export const   Inputs = ({
+export const Inputs = ({
    field = {},
    value,
    options = [],

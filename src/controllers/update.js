@@ -16,5 +16,6 @@ async function schedule(id, schedule) {
       return res;
    } catch (err) {
       console.error(err);
+      throw err
    }
 }

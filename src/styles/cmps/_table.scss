@@ -18,6 +18,9 @@
          background: black;
          font-weight: 500;
          font-size: 1.1em;
+         @media (max-width:$mobile-size) {
+            font-size: 0.5em;
+         }
       }
 
       tbody tr {
@@ -35,7 +38,7 @@
          font-size: 0.85em;
 
          @media (max-width:$mobile-size) {
-            font-size: 0.75em;
+            font-size: 0.45em;
 
          }
       }
@@ -48,7 +51,7 @@
 
 
          @media (max-width:$mobile-size) {
-            display: none;
+            // display: none;
          }
       }
 
@@ -57,26 +60,16 @@
          font-size: 1.1em;
          font-weight: 500;
          padding: 1em 0.5em;
-         white-space: nowrap;
          text-align: center;
+         white-space: break-spaces;
 
          @media (max-width:$mobile-size) {
-            width: 100%;
-            max-width: 1000px;
-            display: flex;
-            justify-content: space-between;
-            gap: 5vw;
-            padding: 0.5em;
+            padding: 0.15em;
          }
 
          span.mobile-header {
             display: none;
             flex-basis: 35%;
-
-            @media (max-width:$mobile-size) {
-               display: block;
-               text-align: left;
-            }
          }
       }
 
