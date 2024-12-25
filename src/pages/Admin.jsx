@@ -21,7 +21,9 @@ export const Admin = () => {
    return (
       <main className='main admin'>
          {!loggedInUser && <Login />}
-         {loggedInUser && <AddRow />}
+         {loggedInUser &&
+            <AddRow />
+         }
          {
             loggedInUser &&
             schedulesByWeeks.map(week => {

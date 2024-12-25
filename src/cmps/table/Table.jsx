@@ -13,7 +13,7 @@ export const Table = ({ headers = [], rows = [] }) => {
             <thead>
                <tr>
                   {
-                     rows.length > 0 && headers.map(header => <th key={header.name}>{header.name}</th>)
+                     rows.length > 0 && headers.map(header => <th data-internal_name={header.internal_name} key={header.name}>{header.name}</th>)
                   }
                </tr>
             </thead>
@@ -23,7 +23,10 @@ export const Table = ({ headers = [], rows = [] }) => {
                      <tr key={row._id || Math.random()}>
                         {
                            headers.map((header) =>
-                              <td key={header.name} className={header.cell_type}>
+                              <td
+                                 data-internal_name={header.internal_name}
+                                 key={header.name}
+                                 data-cell_type={header.cell_type}>
                                  <span className='mobile-header'>{header.name}</span>
                                  <Cells header={header} row={row} />
                               </td>

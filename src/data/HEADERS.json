@@ -1,13 +1,8 @@
 {
    "scheduler": [
       {
-         "name": "",
-         "cell_type": "actions",
-         "headers": [
-            {
-               "cell_type": "remove"
-            }
-         ]
+         "name": "Delete",
+         "cell_type": "remove"
       },
       {
          "name": "Time",

@@ -13,6 +13,6 @@ export const AddRow = () => {
       dispatch({ type: ACTIONS.OPEN_DIALOG, entity: 'addRow' })
    }
    return (
-      <button onClick={handleClick}>{svgs.plus}</button>
+      <button className='btn' onClick={handleClick}>{svgs.plus}</button>
    )
 }

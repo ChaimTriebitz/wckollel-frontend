@@ -6,12 +6,10 @@ import { ACTIONS } from '../../state'
 import { Input, Inputs, Table } from '../../cmps'
 import { toastMsg } from '../../functions/msgEvent'
 import { objects } from '../../functions'
-urls
+
 export const Scheduler = () => {
    const { schedules, dispatch } = useGlobalState()
    
-
-
 
    return (
       <div className='scheduler column'>

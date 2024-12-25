@@ -1,5 +1,5 @@
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import logo from '../assets/imgs/wckollel.jpg';
+import logo from '../assets/imgs/wckollel.png';
 import { useEffect, useState } from 'react';
 import { svgs } from '../assets/svgs';
 import { ACTIONS } from '../state';
@@ -23,8 +23,9 @@ export const Header = () => {
    const [isMenuOpen, setIsMenuOpen] = useState(false)
    return (
       <header className='header'>
-         <Link to='/'>
+         <Link className='logo' to='/'>
             <img src={logo} alt="wckollel logo" />
+            {/* {svgs.logo} */}
          </Link>
          <nav onClick={()=>setIsMenuOpen(false)} className={isMenuOpen ? 'open' : ''}>
             {

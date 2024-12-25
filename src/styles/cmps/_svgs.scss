@@ -9,6 +9,7 @@
    height: 25px;
    align-items: flex-end;
    position: relative;
+   margin: auto;
 
    &:hover #trash-cover{
       animation: opencover 1s forwards;
@@ -24,5 +25,17 @@
       position: absolute;
       top: 0;
       transform-origin: right;
+   }
+}
+
+
+@keyframes opencover {
+
+   0% {
+      transform: rotateZ(0deg);
+   }
+
+   100% {
+      transform: rotateZ(33deg);
    }
 }

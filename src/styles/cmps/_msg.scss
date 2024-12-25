@@ -78,3 +78,39 @@
       animation: hide_slide 1s ease forwards;
    }
 }
+
+@keyframes show_slide {
+   0% {
+      transform: translateX(100%);
+   }
+
+   40% {
+      transform: translateX(-10%);
+   }
+
+   80% {
+      transform: translateX(0%);
+   }
+
+   100% {
+      transform: translateX(-10px);
+   }
+}
+
+@keyframes hide_slide {
+   0% {
+      transform: translateX(-10px);
+   }
+
+   40% {
+      transform: translateX(0%);
+   }
+
+   80% {
+      transform: translateX(-10%);
+   }
+
+   100% {
+      transform: translateX(100%);
+   }
+}

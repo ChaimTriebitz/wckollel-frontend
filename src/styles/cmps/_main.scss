@@ -6,33 +6,18 @@
 
    &.home {
       .banner {
+         color: $c4;
+         justify-content: space-around;
          min-height: 50vh;
          width: 100%;
-         background-repeat: no-repeat;
          background-image:
-            linear-gradient(#ffffff50 50%, #ffffff85 75%, #ffffff90 100%),
-            url('../../assets/imgs/home.jpg'), ;
+            linear-gradient(#ffffff60 50%, #ffffff85 75%, #ffffff90 100%),
+            url('../../assets/imgs/home-1.jpg'), ;
          background-attachment: fixed;
+         background-repeat: no-repeat;
          background-size: cover;
          flex-direction: column;
          text-align: center;
-
-         h1 {
-            color: $c1;
-            padding: 1em;
-            -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: $c2;
-         }
-
-         h2 {
-            background: -webkit-linear-gradient($c1, $c2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: $c2;
-
-         }
-
       }
 
       .cards {
@@ -40,11 +25,11 @@
          margin: 2em;
          max-width: 1200px;
          width: 80%;
-         gap: 5em;
+         gap: 2em;
 
          @media (max-width:$mobile-size) {
             width: 90%;
-            gap: 2em;
+            gap: 1em;
             margin: 1em;
 
          }
@@ -53,7 +38,6 @@
             box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
             background: $gradient1;
             border-radius: 10px;
-            color: #fff;
             gap: 1em;
             align-items: center;
             height: 380px;
@@ -65,10 +49,6 @@
                flex-direction: column;
 
                height: fit-content;
-
-               >* {
-                  height: 50%;
-               }
 
                h2 {
                   text-align: center;
@@ -97,11 +77,10 @@
 
    &.admin {
       padding: 1em;
-      
+
       .week {
          padding: 1em;
          flex-direction: column;
-         background: $c2;
 
          h3 {
             text-align: center;
@@ -112,29 +91,28 @@
    }
 
    &.schedule {
+      background-image: url(http://localhost:3001/static/media/wckollel.d1f2cae….png);
+      background-size: 39%;
+      background-position-x: center;
+      background-repeat: repeat-y;
       padding: 2em;
+
       @media (max-width:$mobile-size) {
          padding: 1em;
       }
+
       .week {
          flex-direction: column;
-         background: $c2;
+         opacity: 0.95;
+
 
          h3 {
             text-align: center;
-            color: white;
+            color: $c4;
             text-decoration: underline;
          }
       }
 
-      table {
-         opacity: 0.95;
-         border-collapse: initial;
-         table-layout: fixed;
 
-         thead {
-            background: $c3;
-         }
-      }
    }
 }

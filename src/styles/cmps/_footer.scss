@@ -11,12 +11,30 @@
       display: flex;
       gap: 0.5em;
       align-items: center;
-      svg{
+
+      svg {
          animation: tilt-shake 2s infinite;
       }
    }
 
-   .btn{
-   border: 1px solid $c1;
+   .btn {
+      border: 1px solid $c1;
+   }
+}
+
+@keyframes tilt-shake {
+
+   0%,
+   20%,
+   100% {
+      transform: rotate(0deg);
+   }
+
+   10% {
+      transform: rotate(5deg);
+   }
+
+   15% {
+      transform: rotate(-10deg);
    }
 }

@@ -1,9 +1,12 @@
-$c1: #3fc1c0;
-$c2: #1d4e89;
-$c3: rgb(110, 113, 115);
-$gradient1: linear-gradient(45deg, #1d4e89, #3fc1c0);
-$gradient2: linear-gradient(45deg, #3fc1c0, #1d4e89);
-$gradient3: linear-gradient(180deg, #3fc1c0, #1d4e89);
+$c1: #CBAF87;
+$c2: #0E2431;
+$c3: #E7DEC8;
+$c4: #30475E;
+$c5: #7E8A97;
+
+$gradient1: linear-gradient(45deg, $c2, #30475E);
+$gradient2: linear-gradient(45deg, #30475E, $c2);
+$gradient3: linear-gradient(180deg, #30475E, $c2);
 
 $c-success: #026600;
 $c-danger: #9C0000;
