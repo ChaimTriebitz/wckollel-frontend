@@ -2,7 +2,8 @@ import { Header } from './Header.jsx'
 import { Main } from './Main.jsx'
 import { Footer } from './Footer.jsx'
 import { Msg } from './Msg.jsx'
-
+// FORMS
+import { DonationForm } from './forms/DonationForm.jsx'
 // ADMIN
 import { Scheduler } from './admin/Scheduler.jsx'
 
@@ -47,6 +48,8 @@ export {
    Header,
    Main,
    Footer,
+   // FORMS
+   DonationForm,
    // ADMIN
    Scheduler,
    // TABLE
