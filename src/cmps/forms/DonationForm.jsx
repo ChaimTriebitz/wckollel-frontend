@@ -11,11 +11,13 @@ export const DonationForm = () => {
 
    useEffect(() => {
       if (window.CollectJS) {
+         console.log(window.CollectJS);
+         
          window.CollectJS.configure({
-            variant: 'inline',
+            variant: 'lightbox',
             styleSniffer: true,
             callback: (token) => {
-               console.log(token);
+               console.log('tok',token);
                handleFinishSubmit(token);
             },
             fields: {
@@ -59,10 +61,12 @@ export const DonationForm = () => {
    };
 
    const handleSubmit = (e) => {
-      e.preventDefault();
+      console.log(window.CollectJS.startPaymentRequest);
+      
+      // e.preventDefault();
       setIsSubmitting(true);
+      window.CollectJS.startPaymentRequest();
       if (window.CollectJS) {
-         window.CollectJS.startPaymentRequest();
       } else {
          console.error('CollectJS is not loaded.');
          setIsSubmitting(false);
@@ -73,7 +77,7 @@ export const DonationForm = () => {
       <div className="donation-form">
          <h1>Donation Form</h1>
          {alertMessage && <div className="alert">{alertMessage}</div>}
-         <form className='form' onSubmit={handleSubmit}>
+         <form className='form' >
             <div className='input'>
                <input
                   type="text"
@@ -104,7 +108,7 @@ export const DonationForm = () => {
             <div id="ccnumber" className='input'/>
             <div id="ccexp" className='input'/>
             <div id="cvv" className='input'/>
-            <button type="submit" disabled={isSubmitting}>
+            <button id='payButton' onClick={handleSubmit} type="submit" >
                Submit
             </button>
          </form>
