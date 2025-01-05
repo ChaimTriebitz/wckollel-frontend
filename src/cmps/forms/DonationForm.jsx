@@ -1,75 +1,57 @@
+import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { FIELDS, URLS } from '../../data';
+import { useCollectjs, useForm } from '../../hooks';
+import { objects } from '../../functions';
+import { Input } from '../inputs/Input';
 
 export const DonationForm = () => {
-   const [formData, setFormData] = useState({
-      firstName: '',
-      lastName: '',
-      amount: '',
-   });
+   const { values, handleChange, restart, changedValues, isValuesChanged } = useForm(objects.filterFields({}, FIELDS.donations.map(v => v.internal_name)))
+
+   useEffect(() => {
+      window.CollectJS.configure({
+         variant: 'lightbox',
+         callback: (token) => {
+            console.log(token);
+            handleFinishSubmit(token)
+         }
+      });
+   }, [])
+
    const [isSubmitting, setIsSubmitting] = useState(false);
    const [alertMessage, setAlertMessage] = useState('');
 
-   useEffect(() => {
-      if (window.CollectJS) {
-         console.log(window.CollectJS);
-         
-         window.CollectJS.configure({
-            variant: 'lightbox',
-            styleSniffer: true,
-            callback: (token) => {
-               console.log('tok',token);
-               handleFinishSubmit(token);
-            },
-            fields: {
-               ccnumber: {
-                  placeholder: 'Card Number',
-                  selector: '#ccnumber',
-               },
-               ccexp: {
-                  placeholder: 'MM/YY',
-                  selector: '#ccexp',
-               },
-               cvv: {
-                  placeholder: 'CVV',
-                  selector: '#cvv',
-               },
-            },
-         });
-      }
-   }, []);
 
-   const handleInputChange = (e) => {
-      const { name, value } = e.target;
-      setFormData((prev) => ({
-         ...prev,
-         [name]: value,
-      }));
-   };
+console.log(values);
 
-   const handleFinishSubmit = (response) => {
+
+   const handleFinishSubmit = async (response) => {
       console.log(response);
-      
+
       const { token } = response;
-      const submissionData = {
-         ...formData,
+      const data = {
+         ...values,
          token,
       };
 
-      console.log(submissionData);
+      console.log(data);
+      
+
+      const res = await axios.post(`${URLS.base}${URLS.donations.donate}`, data)
+      console.log(res);
+
+
       setIsSubmitting(false);
       setAlertMessage('The form was submitted. Check the console to see the output data.');
    };
 
    const handleSubmit = (e) => {
-      console.log(window.CollectJS.startPaymentRequest);
-      
-      // e.preventDefault();
-      setIsSubmitting(true);
-      window.CollectJS.startPaymentRequest();
+
+      e.preventDefault();
       if (window.CollectJS) {
+         window.CollectJS.startPaymentRequest();
       } else {
          console.error('CollectJS is not loaded.');
-         setIsSubmitting(false);
       }
    };
 
@@ -77,8 +59,18 @@ export const DonationForm = () => {
       <div className="donation-form">
          <h1>Donation Form</h1>
          {alertMessage && <div className="alert">{alertMessage}</div>}
-         <form className='form' >
-            <div className='input'>
+         <form className='form' onSubmit={handleSubmit}>
+            {
+               FIELDS.donations.map((field) =>
+                  <Input
+                     value={values[field.internal_name]}
+                     field={field}
+                     handleChange={handleChange}
+                     key={field.internal_name}
+                  />
+               )
+            }
+            {/* <div className='input'>
                <input
                   type="text"
                   name="firstName"
@@ -104,13 +96,8 @@ export const DonationForm = () => {
                   value={formData.amount}
                   onChange={handleInputChange}
                />
-            </div>
-            <div id="ccnumber" className='input'/>
-            <div id="ccexp" className='input'/>
-            <div id="cvv" className='input'/>
-            <button id='payButton' onClick={handleSubmit} type="submit" >
-               Submit
-            </button>
+            </div> */}
+            <button type='submit' >Insert Card Info</button>
          </form>
       </div>
    );

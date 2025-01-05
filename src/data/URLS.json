@@ -1,5 +1,5 @@
 {
-   "base": "https://wckollel-backend.onrender.com/",
+   "base": "http://localhost:5000/",
    "localhost": "http://localhost:5000/",
    "live": "https://wckollel-backend.onrender.com/",
    "auth": {
@@ -14,5 +14,8 @@
       "get": "api/schedules",
       "remove": "api/schedules/remove",
       "update": "api/schedules/update"
+   },
+   "donations": {
+      "donate": "api/donations/donate"
    }
 }

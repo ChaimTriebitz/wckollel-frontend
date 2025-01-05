@@ -3,6 +3,27 @@
       "login": {},
       "register": {}
    },
+   "donations": [
+      {
+         "name": "First Name",
+         "internal_name": "firstname",
+         "element_type": "input",
+         "required": true
+      },
+      {
+         "name": "Last Name",
+         "internal_name": "lastname",
+         "element_type": "input",
+         "required": true
+      },
+      {
+         "name": "Amount",
+         "internal_name": "amount",
+         "element_type": "input",
+         "type": "number",
+         "required": true
+      }
+   ],
    "scheduler": [
       {
          "name": "Week",
