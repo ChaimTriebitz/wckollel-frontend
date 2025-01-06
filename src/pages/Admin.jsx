@@ -10,13 +10,14 @@ export const Admin = () => {
 
    const weeks = [1, 2, 3, 4]
    const schedulesByWeeks = weeks.map(week => ({ id: week, days: dates.getWeeksAhead(week), schedules: schedules.filter(s => s.week === week) }))
-   console.log(schedulesByWeeks);
+   // console.log(schedulesByWeeks);
 
    const login = useLogInUser()
 
    useEffect(() => {
       login()
    }, [])
+// console.log(schedules);
 
    return (
       <main className='main admin'>

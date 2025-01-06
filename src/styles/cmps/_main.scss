@@ -8,16 +8,22 @@
       .banner {
          color: $c4;
          justify-content: space-around;
-         min-height: 50vh;
+         min-height: 65vh;
          width: 100%;
          background-image:
-            linear-gradient(#ffffff60 50%, #ffffff85 75%, #ffffff90 100%),
-            url('../../assets/imgs/home-1.jpg'), ;
+            linear-gradient(#ffffff90 50%, #ffffff85 75%, #ffffff90 100%),
+            url('../../assets/imgs/wckollel.png'), ;
          background-attachment: fixed;
          background-repeat: no-repeat;
-         background-size: cover;
+         background-size: contain;
+         background-position: top center;
          flex-direction: column;
          text-align: center;
+         @media (max-width:$mobile-size) {
+            min-height: 40vh;
+        
+
+         }
       }
 
       .cards {

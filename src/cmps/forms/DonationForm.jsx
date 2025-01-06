@@ -12,8 +12,8 @@ export const DonationForm = () => {
       window.CollectJS.configure({
          variant: 'lightbox',
          callback: (token) => {
-            console.log(token);
-            handleFinishSubmit(token)
+            // console.log(token);
+            // handleFinishSubmit(token)
          }
       });
    }, [])
@@ -22,11 +22,11 @@ export const DonationForm = () => {
    const [alertMessage, setAlertMessage] = useState('');
 
 
-console.log(values);
+// console.log(values);
 
 
    const handleFinishSubmit = async (response) => {
-      console.log(response);
+      // console.log(response);
 
       const { token } = response;
       const data = {
@@ -34,11 +34,11 @@ console.log(values);
          token,
       };
 
-      console.log(data);
+      // console.log(data);
       
 
       const res = await axios.post(`${URLS.base}${URLS.donations.donate}`, data)
-      console.log(res);
+      // console.log(res);
 
 
       setIsSubmitting(false);

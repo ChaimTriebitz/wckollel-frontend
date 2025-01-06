@@ -43,7 +43,7 @@ export const Home = () => {
          <div className="cards">
             {
                data.map(d =>
-                  <div className="card">
+                  <div key={d.p} className="card">
                      <section>
                         <h2>{d.h2}</h2>
                         <p>{d.p}</p>
