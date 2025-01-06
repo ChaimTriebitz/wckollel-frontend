@@ -38,7 +38,7 @@ export const Home = () => {
       <main className='home main'>
          <div className="banner">
             <h1>WELCOME TO WOODMERE COMMUNITY KOLLEL</h1>
-            <h2>Best Kollel ever</h2>
+            <h2>A place for Torah and Achdus</h2>
          </div>
          <div className="cards">
             {
