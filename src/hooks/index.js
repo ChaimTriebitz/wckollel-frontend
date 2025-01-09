@@ -9,10 +9,12 @@ import { useForm } from './useForm.js'
 import { useBlur } from './useBlur.js'
 import { useChangedValues } from './useChangedValues.js'
 import { useScrollToTop } from './useScrollToTop.js'
+import { useCollectjs } from './useCollectjs.js'
 
 
 
 export {
+   useCollectjs,
    useScrollToTop,
    useChangedValues,
    useBlur,

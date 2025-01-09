@@ -5,7 +5,7 @@ export const ConfirmDialog = () => {
    const { closeDialog, dialogRef } = useDialog('confirm')
 
 const handleClick = (x) => {
-console.log(x);
+// console.log(x);
 
 
 }

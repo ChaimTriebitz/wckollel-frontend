@@ -14,5 +14,8 @@
       "get": "api/schedules",
       "remove": "api/schedules/remove",
       "update": "api/schedules/update"
+   },
+   "donations": {
+      "donate": "api/donations/donate"
    }
 }

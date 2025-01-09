@@ -38,12 +38,12 @@ export const Home = () => {
       <main className='home main'>
          <div className="banner">
             <h1>WELCOME TO WOODMERE COMMUNITY KOLLEL</h1>
-            <h2>Best Kollel ever</h2>
+            <h2>A place for Torah and Achdus</h2>
          </div>
          <div className="cards">
             {
                data.map(d =>
-                  <div className="card">
+                  <div key={d.p} className="card">
                      <section>
                         <h2>{d.h2}</h2>
                         <p>{d.p}</p>
