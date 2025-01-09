@@ -4,12 +4,12 @@ $c3: #E7DEC8;
 $c4: #30475E;
 $c5: #7E8A97;
 
-$gradient1: linear-gradient(45deg, $c2, #30475E);
-$gradient2: linear-gradient(45deg, #30475E, $c2);
-$gradient3: linear-gradient(180deg, #30475E, $c2);
+$gradient1: linear-gradient(45deg, $c2, $c4);
+$gradient2: linear-gradient(45deg, $c4, $c2);
+$gradient3: linear-gradient(180deg, $c4, $c2);
 
 $c-success: #026600;
 $c-danger: #9C0000;
 $tr1: rgba(191, 196, 200, 0.80);
-$tr2: rgb(191, 196, 200,1);
+$tr2: rgb(191, 196, 200, 1);
 $mobile-size: 700px;
