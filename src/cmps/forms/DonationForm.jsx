@@ -1,104 +1,49 @@
-import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import { FIELDS, URLS } from '../../data';
-import { useCollectjs, useForm } from '../../hooks';
-import { objects } from '../../functions';
-import { Input } from '../inputs/Input';
+import {  useEffect } from 'react';
 
 export const DonationForm = () => {
-   const { values, handleChange, restart, changedValues, isValuesChanged } = useForm(objects.filterFields({}, FIELDS.donations.map(v => v.internal_name)))
-
    useEffect(() => {
-      window.CollectJS.configure({
-         variant: 'lightbox',
-         callback: (token) => {
-            // console.log(token);
-            // handleFinishSubmit(token)
-         }
-      });
-   }, [])
+      const script = document.createElement('script');
+      script.src = 'https://secure.networkmerchants.com/token/CollectCheckout.js';
+      script.setAttribute('data-checkout-key', process.env.REACT_APP_COLLECT_CHECKOUT);
+      script.async = true;
+      document.body.appendChild(script);
 
-   const [isSubmitting, setIsSubmitting] = useState(false);
-   const [alertMessage, setAlertMessage] = useState('');
-
-
-// console.log(values);
-
-
-   const handleFinishSubmit = async (response) => {
-      // console.log(response);
-
-      const { token } = response;
-      const data = {
-         ...values,
-         token,
+      return () => {
+        document.body.removeChild(script); // Cleanup when the component unmounts
       };
+    }, []);
 
-      // console.log(data);
-      
+    const handleClick = (e) => {
+      e.preventDefault(); // Prevent default behavior if necessary
+      window.CollectCheckout.redirectToCheckout({
+        lineItems: [
+          {
+            sku: "0001",
+            quantity: 2,
+          },
+        ],
+        successUrl:
+          "https://secure.safewebservices.com/merchants/resources/integration/examples/collect_checkout/receipt.php",
+        cancelUrl:
+          "https://secure.safewebservices.com/merchants/resources/integration/examples/collect_checkout/cancel.php",
+      }).then((error) => {
+        if (error) {
+          console.log("Checkout Error:", error);
+        }
+      });
+    };
 
-      const res = await axios.post(`${URLS.base}${URLS.donations.donate}`, data)
-      // console.log(res);
 
 
-      setIsSubmitting(false);
-      setAlertMessage('The form was submitted. Check the console to see the output data.');
-   };
 
-   const handleSubmit = (e) => {
 
-      e.preventDefault();
-      if (window.CollectJS) {
-         window.CollectJS.startPaymentRequest();
-      } else {
-         console.error('CollectJS is not loaded.');
-      }
-   };
+
+
 
    return (
       <div className="donation-form">
          <h1>Donation Form</h1>
-         {alertMessage && <div className="alert">{alertMessage}</div>}
-         <form className='form' onSubmit={handleSubmit}>
-            {
-               FIELDS.donations.map((field) =>
-                  <Input
-                     value={values[field.internal_name]}
-                     field={field}
-                     handleChange={handleChange}
-                     key={field.internal_name}
-                  />
-               )
-            }
-            {/* <div className='input'>
-               <input
-                  type="text"
-                  name="firstName"
-                  placeholder="First Name"
-                  value={formData.firstName}
-                  onChange={handleInputChange}
-               />
-            </div>
-            <div className='input'>
-               <input
-                  type="text"
-                  name="lastName"
-                  placeholder="Last Name"
-                  value={formData.lastName}
-                  onChange={handleInputChange}
-               />
-            </div>
-            <div className='input'>
-               <input
-                  type="text"
-                  name="amount"
-                  placeholder="Amount"
-                  value={formData.amount}
-                  onChange={handleInputChange}
-               />
-            </div> */}
-            <button type='submit' >Insert Card Info</button>
-         </form>
+            <button onClick={handleClick}>Start</button>
       </div>
    );
 };

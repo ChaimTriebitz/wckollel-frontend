@@ -6,7 +6,7 @@ export const Donations = () => {
       <main className='main'>
          <h1>donations</h1>
          <DonationForm />
-
+         {/* <button id="checkout_button">Checkout Now</button> */}
       </main>
    )
 }
