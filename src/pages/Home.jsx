@@ -18,7 +18,7 @@ const data = [
    },
    {
       img: img3,
-      h2: 'Our Mission ',
+      h2: 'Our Mission',
       p: `we are dedicated to bringing the wisdom of Torah into daily life, inspiring both personal growth and a sense of community. Our mission is to make Torah study accessible to everyone, whether you're a full-time learner, a working professional, or someone seeking a deeper connection to Jewish learning. Through diverse programs and dynamic events, we aim to help each member of our community find their place in Torah and spirituality`
    },
    {
@@ -43,7 +43,7 @@ export const Home = () => {
          <div className="cards">
             {
                data.map(d =>
-                  <div key={d.p} className="card">
+                  <div key={d.h2} className="card">
                      <section>
                         <h2>{d.h2}</h2>
                         <p>{d.p}</p>

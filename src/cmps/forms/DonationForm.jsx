@@ -55,11 +55,11 @@ export const DonationForm = () => {
             },
             validCard: (card) => {
                console.log('bababab');
-               
+
                console.log(card)
                // card.isValid // Boolean
                // card.bin // Object of bin data
-         
+
                // If lookupFees is enabled in the options, then you will also receive the following:
                // card.ServiceFee uint - ServiceFee is applicable, to be added to the requested amount.
                // card.PaymentAdjustment.value 
@@ -67,17 +67,16 @@ export const DonationForm = () => {
                // card.RequestedAmount uint - this is the base amount of the transaction, any service fee/surcharge should be added to this
                // card.Surcharge uint - this is the amount to be surcharged.
                // card.Disclosure string - this is the surcharge text to be presented to the card holder
-         
+
                // If you need to check if surchargable
                // Pass state and card bin data
-         
+
             },
-            
+
          });
 
          setTokenizer(instance);
       };
-    }, []);
 
 
 
@@ -91,7 +90,7 @@ export const DonationForm = () => {
 
    const handleSubmission = async (res) => {
       console.log(res);
-      
+
       if (res?.token) {
          try {
             const { name, email, amount } = formValuesRef.current;
