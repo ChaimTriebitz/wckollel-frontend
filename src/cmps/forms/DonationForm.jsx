@@ -77,6 +77,9 @@ export const DonationForm = () => {
 
          setTokenizer(instance);
       };
+    }, []);
+
+
 
       document.body.appendChild(script);
 

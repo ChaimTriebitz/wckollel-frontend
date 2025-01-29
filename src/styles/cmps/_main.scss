@@ -8,21 +8,43 @@
       .banner {
          color: $c4;
          justify-content: space-around;
-         min-height: 65vh;
+         min-height: 55vh;
          width: 100%;
          background-image:
-            linear-gradient(#ffffff90 50%, #ffffff85 75%, #ffffff90 100%),
-            url('../../assets/imgs/wckollel.png'), ;
+            linear-gradient(#ffffff10 0%, #ffffff90 50%, #ffffff90 100%),
+            url('../../assets/imgs/logo500.png'), ;
          background-attachment: fixed;
          background-repeat: no-repeat;
-         background-size: contain;
-         background-position: top center;
+         background-position: center;
          flex-direction: column;
          text-align: center;
-         @media (max-width:$mobile-size) {
-            min-height: 40vh;
-        
+         background-position-y: 4em;
 
+         @media (max-width:$mobile-size) {
+            min-height: 35vh;
+            background-position-y: 1em;
+            background-size: contain;
+         }
+
+         h1 {
+            text-shadow: 2px 2px 10px #000000a3;
+
+         }
+
+         h2 {}
+
+         h2 {
+            font-size: 2.75em;
+            font-weight: 900;
+            -webkit-text-stroke: 1px $c2;
+            text-stroke: 1px $c2;
+            letter-spacing: 1px;
+            color: $c5;
+            text-shadow: 2px 2px 10px #000000a3;
+
+            @media (max-width:$mobile-size) {
+               font-size: 1.75em;
+            }
          }
       }
 
