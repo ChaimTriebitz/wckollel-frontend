@@ -1,105 +1,166 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import { FIELDS, URLS } from '../../data';
-import { useCollectjs, useForm } from '../../hooks';
-import { objects } from '../../functions';
-import { Input } from '../inputs/Input';
+import React, { useEffect, useRef, useState } from "react";
+import { URLS } from '../../data';
+import { useForm } from '../../hooks';
 
 export const DonationForm = () => {
-   const { values, handleChange, restart, changedValues, isValuesChanged } = useForm(objects.filterFields({}, FIELDS.donations.map(v => v.internal_name)))
+   const { values, handleChange } = useForm({ name: '', email: '', amount: '' })
+   const formValuesRef = useRef(values);
+   const [tokenizer, setTokenizer] = useState(null);
+   const [message, setMessage] = useState('');
 
    useEffect(() => {
-      window.CollectJS.configure({
-         variant: 'lightbox',
-         callback: (token) => {
-            // console.log(token);
-            // handleFinishSubmit(token)
-         }
-      });
-   }, [])
+      formValuesRef.current = values; // Keep the latest values
+   }, [values]);
 
-   const [isSubmitting, setIsSubmitting] = useState(false);
-   const [alertMessage, setAlertMessage] = useState('');
+   useEffect(() => {
+      const script = document.createElement("script");
+      script.src = "https://app.fluidpay.com/tokenizer/tokenizer.js"; // Use live script
+      script.async = true;
 
+      script.onload = () => {
+         const instance = new window.Tokenizer({
+            apikey: process.env.REACT_APP_FLUIDPAY_PUBLIC_KEY, // Replace with live API key
+            container: "#card-container",
+            submission: handleSubmission,
+            settings: {
+               styles: {
+                  'body': {
+                     'color': '#ffffff',
+                  },
+                  'input': {
+                     'font-size': '1.5em',
+                     'color': '#ffffff',
+                     'border-radius': '15px',
+                     'background-color': '#30475E',
+                     'border': 'none',
+                     'padding-top': '0.25em',
+                     'padding': '5px 10px',
+                     'min-height': '35px'
 
-// console.log(values);
+                  },
+                  '.fieldset.cc': {
+                     'margin-bottom': '10px'
+                  },
+                  '.card .cc .cc-icon': {
+                     'margin-left': '10px'
+                  },
+                  '.payment .cvv input': {
+                     // 'border': 'solid 1px #ffffff',
+                  },
+                  '.card .cc input': {
+                     'padding': '6px 6px 6px 50px'
+                  }
+               }
+            },
+            validCard: (card) => {
+               console.log('bababab');
+               
+               console.log(card)
+               // card.isValid // Boolean
+               // card.bin // Object of bin data
+         
+               // If lookupFees is enabled in the options, then you will also receive the following:
+               // card.ServiceFee uint - ServiceFee is applicable, to be added to the requested amount.
+               // card.PaymentAdjustment.value 
+               // card.PaymentAdjustment.type
+               // card.RequestedAmount uint - this is the base amount of the transaction, any service fee/surcharge should be added to this
+               // card.Surcharge uint - this is the amount to be surcharged.
+               // card.Disclosure string - this is the surcharge text to be presented to the card holder
+         
+               // If you need to check if surchargable
+               // Pass state and card bin data
+         
+            },
+            
+         });
 
-
-   const handleFinishSubmit = async (response) => {
-      // console.log(response);
-
-      const { token } = response;
-      const data = {
-         ...values,
-         token,
+         setTokenizer(instance);
       };
 
-      // console.log(data);
+      document.body.appendChild(script);
+
+      return () => {
+         document.body.removeChild(script);
+      };
+   }, []);
+
+
+   const handleSubmission = async (res) => {
+      console.log(res);
       
+      if (res?.token) {
+         try {
+            const { name, email, amount } = formValuesRef.current;
+            const response = await axios.post(`${URLS.base}${URLS.donations.donate}`, {
+               token: res.token,
+               amount: parseFloat(amount) * 100, // Amount in cents
+               name: name,
+               email: email,
+            });
 
-      const res = await axios.post(`${URLS.base}${URLS.donations.donate}`, data)
-      // console.log(res);
+            console.log(response.data.data);
+            if (response.data.data.id) {
 
-
-      setIsSubmitting(false);
-      setAlertMessage('The form was submitted. Check the console to see the output data.');
+               setMessage("Transaction successful! Thank you for your donation.");
+            } else {
+               setMessage("Failed to process the transaction.");
+            }
+         } catch (error) {
+            console.error("Error:", error);
+            setMessage("An error occurred. Please try again.");
+         }
+      } else {
+         console.error("Error tokenizing payment:", res);
+         setMessage("Failed to tokenize payment. Please check your details.");
+      }
    };
 
    const handleSubmit = (e) => {
-
       e.preventDefault();
-      if (window.CollectJS) {
-         window.CollectJS.startPaymentRequest();
+      if (tokenizer) {
+         tokenizer.submit(); // Trigger the submit method of the Tokenizer instance
       } else {
-         console.error('CollectJS is not loaded.');
+         setMessage("Payment system is not initialized yet.");
       }
    };
 
    return (
-      <div className="donation-form">
-         <h1>Donation Form</h1>
-         {alertMessage && <div className="alert">{alertMessage}</div>}
-         <form className='form' onSubmit={handleSubmit}>
-            {
-               FIELDS.donations.map((field) =>
-                  <Input
-                     value={values[field.internal_name]}
-                     field={field}
-                     handleChange={handleChange}
-                     key={field.internal_name}
-                  />
-               )
-            }
-            {/* <div className='input'>
-               <input
-                  type="text"
-                  name="firstName"
-                  placeholder="First Name"
-                  value={formData.firstName}
-                  onChange={handleInputChange}
-               />
-            </div>
-            <div className='input'>
-               <input
-                  type="text"
-                  name="lastName"
-                  placeholder="Last Name"
-                  value={formData.lastName}
-                  onChange={handleInputChange}
-               />
-            </div>
-            <div className='input'>
-               <input
-                  type="text"
-                  name="amount"
-                  placeholder="Amount"
-                  value={formData.amount}
-                  onChange={handleInputChange}
-               />
-            </div> */}
-            <button type='submit' >Insert Card Info</button>
-         </form>
-      </div>
+      <form className='form donation' onSubmit={handleSubmit}>
+         {/* <h4>Personal Details</h4> */}
+
+         <input
+            type="text"
+            placeholder="Full Name"
+            value={values.name}
+            onChange={handleChange}
+            name='name'
+            required
+         />
+         <input
+            type="email"
+            name='email'
+            placeholder="Email"
+            value={values.email}
+            onChange={handleChange}
+            required
+         />
+         <input
+            name='amount'
+            type="number"
+            placeholder="Donation Amount (USD)"
+            value={values.amount}
+            onChange={handleChange}
+            required
+         />
+         <h4>Card Details</h4>
+         <div
+            id="card-container"
+            style={{ overflow: 'hidden' }}
+         ></div>
+
+         <button style={{ opacity: tokenizer ? 1 : 0.8 }} className='btn success' type="submit">Donate</button>
+         <p>{message}</p>
+      </form>
    );
 };
-

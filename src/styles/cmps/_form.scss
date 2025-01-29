@@ -32,4 +32,25 @@
          color: $c1;
       }
    }
+
+   &.donation {
+      background: $c3;
+      
+      h4{
+         color: $c4;
+      text-align: center;
+      }
+
+      input {
+         font-weight: 500;
+         background: $c4;
+         color: white;
+
+         &::placeholder {
+            color: #B8B8B8;
+            text-align: start;
+         }
+
+      }
+   }
 }

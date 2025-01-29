@@ -23,22 +23,24 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+
    <title>wc kollel</title>
 </head>
 
 <body>
    <noscript>You need to enable JavaScript to run this app.</noscript>
    <div id="root"></div>
-   <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+   <!-- <script src="https://secure.fluidpay.com/sdk/v1/secure-fields.min.js"></script>
+   <script>
+      var example = new Tokenizer({
+        url: '', // Optional - Only needed if domain is different than the one your on, example: localhost
+        apikey: 'pub_2sJRU46yMCw96msAiiJaJYYMzYb',
+        container: '#container', // Make sure that this "container" is the same as the id of the div container you referenced above.
+        // Callback after submission request has been made
+        // See Advanced -> Methods for breakdown of specific fields
+        submission: (resp) => { console.log(resp) }
+      })
+    </script> -->
 </body>
 
 </html>
