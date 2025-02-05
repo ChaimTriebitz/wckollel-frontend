@@ -5,7 +5,7 @@ export const Input = ({
    handleBlur = () => { }
 }) => {
 
-   const { internal_name = '', type = 'text', required = false } = field
+   const { internal_name = '', type = 'text', required = false, placeholder = '' } = field
 
    return (
       <input
@@ -15,6 +15,7 @@ export const Input = ({
          onChange={handleChange}
          required={required}
          onBlur={handleBlur}
+         placeholder={placeholder}
       />
    )
 }

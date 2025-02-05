@@ -1,16 +1,17 @@
 import axios from 'axios';
-import { DATA, URLS } from '../data';
+import { ls, urls } from '../config'
 
 export const create = {
-   schedule
+   schedule,
+   donation
 }
 
 async function schedule(data) {
    try {
-      const res = await axios.post(`${URLS.base}${URLS.schedules.create}`, data, {
+      const res = await axios.post(urls.schedules.create, data, {
          headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${localStorage.getItem(DATA.LOCAL_STORAGE_TOKEN)}`
+            "Authorization": `Bearer ${localStorage.getItem(ls.user)}`
          }
       });
       return res;
@@ -18,3 +19,14 @@ async function schedule(data) {
       throw err
    }
 }
+async function donation(data) {
+   
+   try {
+      const response = await axios.post(urls.donations.donate, data);
+      return response.data
+   } catch (error) {
+      throw error
+   }
+}
+
+

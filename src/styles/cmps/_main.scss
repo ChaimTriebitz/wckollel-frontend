@@ -4,6 +4,10 @@
    align-items: center;
    flex: 1;
 
+   &.auth{
+   justify-content: center;
+   }
+
    &.home {
       .banner {
          color: $c4;
@@ -143,4 +147,6 @@
 
 
    }
+
+
 }

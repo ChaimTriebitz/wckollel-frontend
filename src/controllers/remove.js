@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { DATA, URLS } from '../data';
+import { ls, urls } from '../config';
 
 export const remove = {
    schedule
@@ -7,14 +7,14 @@ export const remove = {
 
 async function schedule(id) {
    try {
-      const res = await axios.delete(`${URLS.base}${URLS.schedules.remove}/${id}`, {
+      const res = await axios.delete(`${urls.schedules.remove}/${id}`, {
          headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${localStorage.getItem(DATA.LOCAL_STORAGE_TOKEN)}`
+            "Authorization": `Bearer ${localStorage.getItem(ls.user)}`
          }
       });
       return res;
    } catch (err) {
-      console.error(err);
+      throw err
    }
 }

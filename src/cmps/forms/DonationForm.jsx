@@ -1,10 +1,13 @@
-import axios from 'axios';
-import React, { useEffect, useRef, useState } from "react";
-import { URLS } from '../../data';
+import { useEffect, useRef, useState } from "react";
+import { FIELDS } from '../../data';
 import { useForm } from '../../hooks';
+import { apikeys, urls } from '../../config';
+import { Inputs } from '../../cmps';
+import { create } from '../../controllers';
+import { objects } from '../../functions';
 
 export const DonationForm = () => {
-   const { values, handleChange } = useForm({ name: '', email: '', amount: '' })
+   const { values, handleChange } = useForm(objects.filterFields({}, FIELDS.donations.map(f => f.internal_name)))
    const formValuesRef = useRef(values);
    const [tokenizer, setTokenizer] = useState(null);
    const [message, setMessage] = useState('');
@@ -15,12 +18,11 @@ export const DonationForm = () => {
 
    useEffect(() => {
       const script = document.createElement("script");
-      script.src = "https://app.fluidpay.com/tokenizer/tokenizer.js"; // Use live script
+      script.src = urls.fluidpay.tokenizer // Use live script
       script.async = true;
-
       script.onload = () => {
          const instance = new window.Tokenizer({
-            apikey: process.env.REACT_APP_FLUIDPAY_PUBLIC_KEY, // Replace with live API key
+            apikey: apikeys.fluidpay_public, // Replace with live API key
             container: "#card-container",
             submission: handleSubmission,
             settings: {
@@ -53,68 +55,39 @@ export const DonationForm = () => {
                   }
                }
             },
+            onload:console.log('baba'),
+            onPaymentChange: (type) => { console.log(type) },
             validCard: (card) => {
-               console.log('bababab');
-
-               console.log(card)
-               // card.isValid // Boolean
-               // card.bin // Object of bin data
-
-               // If lookupFees is enabled in the options, then you will also receive the following:
-               // card.ServiceFee uint - ServiceFee is applicable, to be added to the requested amount.
-               // card.PaymentAdjustment.value 
-               // card.PaymentAdjustment.type
-               // card.RequestedAmount uint - this is the base amount of the transaction, any service fee/surcharge should be added to this
-               // card.Surcharge uint - this is the amount to be surcharged.
-               // card.Disclosure string - this is the surcharge text to be presented to the card holder
-
-               // If you need to check if surchargable
-               // Pass state and card bin data
-
+               
             },
-
+            validExpiration: (ex) => {
+               console.log(ex)
+            },
+            validCVV: (cvv) => {
+               console.log(cvv)
+            },
          });
-
          setTokenizer(instance);
       };
 
-
-
       document.body.appendChild(script);
-
       return () => {
          document.body.removeChild(script);
       };
    }, []);
 
-
    const handleSubmission = async (res) => {
-      console.log(res);
 
       if (res?.token) {
-         try {
-            const { name, email, amount } = formValuesRef.current;
-            const response = await axios.post(`${URLS.base}${URLS.donations.donate}`, {
-               token: res.token,
-               amount: parseFloat(amount) * 100, // Amount in cents
-               name: name,
-               email: email,
-            });
-
-            console.log(response.data.data);
-            if (response.data.data.id) {
-
-               setMessage("Transaction successful! Thank you for your donation.");
-            } else {
-               setMessage("Failed to process the transaction.");
-            }
-         } catch (error) {
-            console.error("Error:", error);
-            setMessage("An error occurred. Please try again.");
-         }
+         console.log(res);
+         setMessage("");
+         
+         formValuesRef.current = { ...formValuesRef.current, token: res.token }
+         create.donation(formValuesRef.current)
+            .then((data) => console.log(data)
+            )
       } else {
-         console.error("Error tokenizing payment:", res);
-         setMessage("Failed to tokenize payment. Please check your details.");
+         setMessage("Wrong Card Details Try Again");
       }
    };
 
@@ -129,40 +102,23 @@ export const DonationForm = () => {
 
    return (
       <form className='form donation' onSubmit={handleSubmit}>
-         {/* <h4>Personal Details</h4> */}
-
-         <input
-            type="text"
-            placeholder="Full Name"
-            value={values.name}
-            onChange={handleChange}
-            name='name'
-            required
-         />
-         <input
-            type="email"
-            name='email'
-            placeholder="Email"
-            value={values.email}
-            onChange={handleChange}
-            required
-         />
-         <input
-            name='amount'
-            type="number"
-            placeholder="Donation Amount (USD)"
-            value={values.amount}
-            onChange={handleChange}
-            required
-         />
+         {
+            FIELDS.donations.map((field) =>
+               <Inputs
+                  value={values[field.internal_name]}
+                  field={field}
+                  handleChange={handleChange}
+                  key={field.internal_name}
+                  options={field.options}
+               />
+            )
+         }
          <h4>Card Details</h4>
-         <div
-            id="card-container"
-            style={{ overflow: 'hidden' }}
-         ></div>
 
-         <button style={{ opacity: tokenizer ? 1 : 0.8 }} className='btn success' type="submit">Donate</button>
-         <p>{message}</p>
+         <div id="card-container" style={{ overflow: 'hidden' }} />
+
+         <button className='btn success' type="submit">Donate</button>
+         <p className='error'>{message}</p>
       </form>
    );
 };
