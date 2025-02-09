@@ -1,49 +1,74 @@
-import {  useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useUpdateEffect } from '../../hooks';
 
 export const DonationForm = () => {
-   useEffect(() => {
-      const script = document.createElement('script');
-      script.src = 'https://secure.networkmerchants.com/token/CollectCheckout.js';
-      script.setAttribute('data-checkout-key', process.env.REACT_APP_COLLECT_CHECKOUT);
-      script.async = true;
-      document.body.appendChild(script);
+   const [amount, setAmount] = useState("");
+   const [cardNumber, setCardNumber] = useState("");
+   const [expiry, setExpiry] = useState("");
+   const [cvv, setCvv] = useState("");
+   const [message, setMessage] = useState("");
 
-      return () => {
-        document.body.removeChild(script); // Cleanup when the component unmounts
-      };
-    }, []);
+   const handleSubmit = async (e) => {
+      e.preventDefault();
+      setMessage("Processing donation...");
 
-    const handleClick = (e) => {
-      e.preventDefault(); // Prevent default behavior if necessary
-      window.CollectCheckout.redirectToCheckout({
-        lineItems: [
-          {
-            sku: "0001",
-            quantity: 2,
-          },
-        ],
-        successUrl:
-          "https://secure.safewebservices.com/merchants/resources/integration/examples/collect_checkout/receipt.php",
-        cancelUrl:
-          "https://secure.safewebservices.com/merchants/resources/integration/examples/collect_checkout/cancel.php",
-      }).then((error) => {
-        if (error) {
-          console.log("Checkout Error:", error);
-        }
+      const response = await fetch("http://localhost:5000/api/donations/donate", {
+         method: "POST",
+         headers: { "Content-Type": "application/json" },
+         body: JSON.stringify({ amount, cardNumber, expiry, cvv }),
       });
-    };
 
-
-
-
-
-
-
+      const data = await response.json();
+      if (data.success) {
+         setMessage("Donation successful! Thank you!");
+      } else {
+         setMessage(`Error: ${data.message}`);
+      }
+   };
 
    return (
-      <div className="donation-form">
-         <h1>Donation Form</h1>
-            <button onClick={handleClick}>Start</button>
+      <div className='donation-form'>
+         <h2>Make a Donation</h2>
+         <form className='form' onSubmit={handleSubmit}>
+            <div className='input'>
+               <label>Donation Amount ($):</label>
+               <input
+                  type="text"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                  required
+               />
+            </div>
+            <div>
+               <label>Card Number:</label>
+               <input
+                  type="text"
+                  value={cardNumber}
+                  onChange={(e) => setCardNumber(e.target.value)}
+                  required
+               />
+            </div>
+            <div>
+               <label>Expiry Date (MMYY):</label>
+               <input
+                  type="text"
+                  value={expiry}
+                  onChange={(e) => setExpiry(e.target.value)}
+                  required
+               />
+            </div>
+            <div>
+               <label>CVV:</label>
+               <input
+                  type="text"
+                  value={cvv}
+                  onChange={(e) => setCvv(e.target.value)}
+                  required
+               />
+            </div>
+            <button type="submit">Donate</button>
+         </form>
+         <p>{message}</p>
       </div>
    );
 };
