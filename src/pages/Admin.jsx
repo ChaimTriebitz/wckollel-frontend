@@ -1,32 +1,27 @@
 import React, { useEffect } from 'react'
-import { useGlobalState, useLogInUser } from '../hooks';
-import { AddRow, Login, Register, Scheduler, Table } from '../cmps';
-import { DATA, FIELDS, HEADERS } from '../data';
-import { svgs } from '../assets/svgs';
+import { useGlobalState } from '../hooks';
+import { AddRow, Table } from '../cmps';
+import { HEADERS } from '../data';
 import { dates } from '../functions';
+import { ls } from '../config';
+import { useNavigate } from 'react-router-dom';
 
 export const Admin = () => {
-   const { loggedInUser, dispatch, schedules } = useGlobalState()
+   const { schedules } = useGlobalState()
+   const user = localStorage.getItem(ls.user)
+   const navigate = useNavigate()
 
    const weeks = [1, 2, 3, 4]
    const schedulesByWeeks = weeks.map(week => ({ id: week, days: dates.getWeeksAhead(week), schedules: schedules.filter(s => s.week === week) }))
-   // console.log(schedulesByWeeks);
-
-   const login = useLogInUser()
 
    useEffect(() => {
-      login()
+      if (!user) navigate('/auth')
    }, [])
-// console.log(schedules);
 
    return (
       <main className='main admin'>
-         {!loggedInUser && <Login />}
-         {loggedInUser &&
-            <AddRow />
-         }
+         <AddRow />
          {
-            loggedInUser &&
             schedulesByWeeks.map(week => {
                const { days, schedules, id } = week
                const [sunday, saturday] = [days[0], days[6]]

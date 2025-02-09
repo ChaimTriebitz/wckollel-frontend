@@ -5,20 +5,29 @@
    },
    "donations": [
       {
+         "internal_name": "first_name",
          "name": "First Name",
-         "internal_name": "firstname",
+         "placeholder":"First Name",
          "element_type": "input",
          "required": true
       },
       {
+         "internal_name": "last_name",
          "name": "Last Name",
-         "internal_name": "lastname",
+         "placeholder":"Last Name",
          "element_type": "input",
          "required": true
       },
       {
-         "name": "Amount",
+         "internal_name": "email",
+         "name": "Email",
+         "placeholder":"Email",
+         "element_type": "input",
+         "type": "email"
+      },
+      {
          "internal_name": "amount",
+         "name": "Amount",
          "element_type": "input",
          "type": "number",
          "required": true

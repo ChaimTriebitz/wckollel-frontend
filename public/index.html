@@ -23,6 +23,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+
    <title>wc kollel</title>
 
 </head>
@@ -30,51 +31,17 @@
 <body>
    <noscript>You need to enable JavaScript to run this app.</noscript>
    <div id="root"></div>
-   <!-- <script src="https://secure.networkmerchants.com/token/CollectCheckout.js"
-   data-checkout-key=></script> -->
-   <script src="https://secure.nmi.com/token/CollectCheckout.js" data-checkout-key="checkout_public_Q5R6CGK2D8f7aQ2578rA7694qagKbmyp">
-   </script>
-<!-- This is the element on your page that we’re using to trigger Collect Checkout. -->
-<!-- <button style="width: 50px; position: absolute; top: 50px; background: blue; height: 50px;" id="checkout_button">Checkout Now</button> -->
-
-<!--
-You must run CollectCheckout.redirectToCheckout to send the customer to your cart.
-This is using a click on a specific div, but you can make this anything you like.
-All configuration happens in an object passed into redirectToCheckout.
--->
-<!-- <script>
-document.getElementById('checkout_button').addEventListener('click', function (e) {
-CollectCheckout.redirectToCheckout({
-   lineItems: [{
-       sku: "0001",
-       quantity: 1
-   }],
-   type: "sale",
-   collectShippingInfo: true,
-   customerVault: {
-       addCustomer: true
-   },
-   successUrl: "https://example.com/receipt/?transid={TRANSACTION_ID}",
-   cancelUrl: "https://example.com/",
-   receipt: {
-       showReceipt: true,
-       redirectToSuccessUrl: true
-   }
-}).then((error) => {
-   console.log(error);
-});
-});
-</script> -->
-   <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+   <!-- <script src="https://secure.fluidpay.com/sdk/v1/secure-fields.min.js"></script>
+   <script>
+      var example = new Tokenizer({
+        url: '', // Optional - Only needed if domain is different than the one your on, example: localhost
+        apikey: 'pub_2sJRU46yMCw96msAiiJaJYYMzYb',
+        container: '#container', // Make sure that this "container" is the same as the id of the div container you referenced above.
+        // Callback after submission request has been made
+        // See Advanced -> Methods for breakdown of specific fields
+        submission: (resp) => { console.log(resp) }
+      })
+    </script> -->
 </body>
 
 </html>

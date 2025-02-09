@@ -1,75 +1,124 @@
-import { useEffect, useState } from 'react';
-import { useUpdateEffect } from '../../hooks';
+import { useEffect, useRef, useState } from "react";
+import { FIELDS } from '../../data';
+import { useForm } from '../../hooks';
+import { apikeys, urls } from '../../config';
+import { Inputs } from '../../cmps';
+import { create } from '../../controllers';
+import { objects } from '../../functions';
 
 export const DonationForm = () => {
-   const [amount, setAmount] = useState("");
-   const [cardNumber, setCardNumber] = useState("");
-   const [expiry, setExpiry] = useState("");
-   const [cvv, setCvv] = useState("");
-   const [message, setMessage] = useState("");
+   const { values, handleChange } = useForm(objects.filterFields({}, FIELDS.donations.map(f => f.internal_name)))
+   const formValuesRef = useRef(values);
+   const [tokenizer, setTokenizer] = useState(null);
+   const [message, setMessage] = useState('');
 
-   const handleSubmit = async (e) => {
-      e.preventDefault();
-      setMessage("Processing donation...");
+   useEffect(() => {
+      formValuesRef.current = values; // Keep the latest values
+   }, [values]);
 
-      const response = await fetch("http://localhost:5000/api/donations/donate", {
-         method: "POST",
-         headers: { "Content-Type": "application/json" },
-         body: JSON.stringify({ amount, cardNumber, expiry, cvv }),
-      });
+   useEffect(() => {
+      const script = document.createElement("script");
+      script.src = urls.fluidpay.tokenizer // Use live script
+      script.async = true;
+      script.onload = () => {
+         const instance = new window.Tokenizer({
+            apikey: apikeys.fluidpay_public, // Replace with live API key
+            container: "#card-container",
+            submission: handleSubmission,
+            settings: {
+               styles: {
+                  'body': {
+                     'color': '#ffffff',
+                  },
+                  'input': {
+                     'font-size': '1.5em',
+                     'color': '#ffffff',
+                     'border-radius': '15px',
+                     'background-color': '#30475E',
+                     'border': 'none',
+                     'padding-top': '0.25em',
+                     'padding': '5px 10px',
+                     'min-height': '35px'
 
-      const data = await response.json();
-      if (data.success) {
-         setMessage("Donation successful! Thank you!");
+                  },
+                  '.fieldset.cc': {
+                     'margin-bottom': '10px'
+                  },
+                  '.card .cc .cc-icon': {
+                     'margin-left': '10px'
+                  },
+                  '.payment .cvv input': {
+                     // 'border': 'solid 1px #ffffff',
+                  },
+                  '.card .cc input': {
+                     'padding': '6px 6px 6px 50px'
+                  }
+               }
+            },
+            onload:console.log('baba'),
+            onPaymentChange: (type) => { console.log(type) },
+            validCard: (card) => {
+               
+            },
+            validExpiration: (ex) => {
+               console.log(ex)
+            },
+            validCVV: (cvv) => {
+               console.log(cvv)
+            },
+         });
+         setTokenizer(instance);
+      };
+
+      document.body.appendChild(script);
+      return () => {
+         document.body.removeChild(script);
+      };
+   }, []);
+
+   const handleSubmission = async (res) => {
+
+      if (res?.token) {
+         console.log(res);
+         setMessage("");
+         
+         formValuesRef.current = { ...formValuesRef.current, token: res.token }
+         create.donation(formValuesRef.current)
+            .then((data) => console.log(data)
+            )
       } else {
-         setMessage(`Error: ${data.message}`);
+         setMessage("Wrong Card Details Try Again");
+      }
+   };
+
+   const handleSubmit = (e) => {
+      e.preventDefault();
+      if (tokenizer) {
+         tokenizer.submit(); // Trigger the submit method of the Tokenizer instance
+      } else {
+         setMessage("Payment system is not initialized yet.");
       }
    };
 
    return (
-      <div className='donation-form'>
-         <h2>Make a Donation</h2>
-         <form className='form' onSubmit={handleSubmit}>
-            <div className='input'>
-               <label>Donation Amount ($):</label>
-               <input
-                  type="text"
-                  value={amount}
-                  onChange={(e) => setAmount(e.target.value)}
-                  required
+      <form className='form donation' onSubmit={handleSubmit}>
+         {
+            FIELDS.donations.map((field) =>
+               <Inputs
+                  value={values[field.internal_name]}
+                  field={field}
+                  handleChange={handleChange}
+                  key={field.internal_name}
+                  options={field.options}
                />
-            </div>
-            <div>
-               <label>Card Number:</label>
-               <input
-                  type="text"
-                  value={cardNumber}
-                  onChange={(e) => setCardNumber(e.target.value)}
-                  required
-               />
-            </div>
-            <div>
-               <label>Expiry Date (MMYY):</label>
-               <input
-                  type="text"
-                  value={expiry}
-                  onChange={(e) => setExpiry(e.target.value)}
-                  required
-               />
-            </div>
-            <div>
-               <label>CVV:</label>
-               <input
-                  type="text"
-                  value={cvv}
-                  onChange={(e) => setCvv(e.target.value)}
-                  required
-               />
-            </div>
-            <button type="submit">Donate</button>
-         </form>
-         <p>{message}</p>
-      </div>
+            )
+         }
+         <h4>Card Details</h4>
+
+         <div id="card-container" style={{ overflow: 'hidden' }} />
+
+         <button className='btn success' type="submit">Donate</button>
+         <p className='error'>{message}</p>
+      </form>
    );
 };
-

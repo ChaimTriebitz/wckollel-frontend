@@ -1,8 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 
-import { useEffect } from 'react'
-import { get } from '../controllers'
-import { About, Admin, Donations, Home, Schedules } from '../pages'
+import { About, Admin, Auth, Donations, Home, Schedules } from '../pages'
 
 export const Main = () => {
 
@@ -13,6 +11,7 @@ export const Main = () => {
          <Route path='/schedules' element={<Schedules />} />
          <Route path='/donations' element={<Donations />} />
          <Route path='/admin' element={<Admin />} />
+         <Route path='/auth' element={<Auth />} />
       </Routes>
    )
 }

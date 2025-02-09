@@ -82,6 +82,7 @@ h3 {
       font-weight: 600;
    }
 }
+
 h4 {
    font-size: 1.5em;
    font-weight: 600;
@@ -91,6 +92,7 @@ h4 {
       font-weight: 500;
    }
 }
+
 h5 {
    font-size: 1.25em;
    font-weight: 500;
@@ -103,6 +105,7 @@ h5 {
 
 p {
    font-size: 1.15em;
+
    @media (max-width:$mobile-size) {
       font-size: 1em;
    }
@@ -164,6 +167,12 @@ input {
    min-height: 25px;
    width: 100%;
 
+   &:-webkit-autofill {
+      // color: inherit !important;
+      // -webkit-text-fill-color: inherit !important;
+      transition: 5000s ease-in-out 0s;
+   }
+
    &[type=checkbox] {
       aspect-ratio: 1;
       width: 25px;
@@ -182,7 +191,7 @@ select {
    height: 2em;
 }
 
-textarea{
+textarea {
    background: white;
    padding: 0.25em 0.5em;
    border-radius: 15px;

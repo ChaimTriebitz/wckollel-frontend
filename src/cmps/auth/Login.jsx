@@ -1,30 +1,21 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-import { useForm, useLogInUser } from '../../hooks'
-import { DATA, URLS } from '../../data'
+import { useState } from 'react'
+import { useForm } from '../../hooks'
+import { auth } from '../../controllers'
+import { useNavigate } from 'react-router-dom'
 
 export const Login = () => {
    const { values, handleChange } = useForm({ username: '', password: '' })
-
-   const login = useLogInUser()
    const [err, setErr] = useState('')
-
+   const navigate = useNavigate()
    const handleSubmit = async (e) => {
-
       e.preventDefault()
-
-      try {
-         const res = await axios.post(`${URLS.base}${URLS.auth.login}`, { ...values })
-         const data = res?.data
-         if (data.success) {
-            localStorage.setItem(DATA.LOCAL_STORAGE_TOKEN, data.token)
-            login()
-         }
-      } catch (error) {
-         setErr(error.response?.data.error)
-      }
+      auth.login(values)
+      .then(() => {
+         navigate('/admin')
+      }).catch((error) =>
+         setErr(error.response.data.error)
+      )
    }
-
 
    return (
       <form className='login form' onSubmit={handleSubmit}>

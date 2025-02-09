@@ -21,7 +21,7 @@ export const DetailsDialog = () => {
          .then((res) => toastMsg.success(res.data.message))
          .then(() => dispatch({ type: ACTIONS.REFRESH_DATA }))
          .then(closeDialog)
-         .catch((err) => toastMsg.error(err.response.data.message))
+         .catch((err) => toastMsg.error(err.response.data.error))
    }
 
    return (
