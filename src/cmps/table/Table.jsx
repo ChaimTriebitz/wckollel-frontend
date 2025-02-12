@@ -7,7 +7,7 @@ export const Table = ({ headers = [], rows = [] }) => {
    const { isDataLoading } = useGlobalState()
 
    return (
-      <div className={`table-container ${isDataLoading?'loading':''}`}>
+      <div className={`table-container ${isDataLoading ? 'loading' : ''}`}>
          {isDataLoading && < div className='loader' id='sandwatchloader' />}
          <table>
             <thead>

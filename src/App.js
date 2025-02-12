@@ -15,9 +15,8 @@ function App() {
    useEffect(() => {
       get.schedules()
          .then((res) => dispatch({ type: ACTIONS.SET, entity: 'schedules', payload: res.data }))
-         .then(() => dispatch({ type: ACTIONS.SET, entity: 'isDataLoading', payload: false }))
-         .catch(()=>console.log()
-         )
+         .catch(() => console.log())
+         .finally(() => dispatch({ type: ACTIONS.SET, entity: 'isDataLoading', payload: false }))
    }, [refreshCount])
 
    return (

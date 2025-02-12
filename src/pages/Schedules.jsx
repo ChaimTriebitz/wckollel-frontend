@@ -7,7 +7,7 @@ import { dates } from '../functions'
 export const Schedules = () => {
 
    const { schedules } = useGlobalState()
-   const weeks = [1, 2, 3, 4]
+   const weeks = [1, 2, 3]
    const schedulesByWeeks = weeks.map(week => ({ id: week, days: dates.getWeeksAhead(week), schedules: schedules.filter(s => s.week === week) }))
 
    return (
