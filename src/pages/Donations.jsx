@@ -1,12 +1,12 @@
 import React from 'react'
 import { DonationForm } from '../cmps'
-import x from '../assets/gifs/payment-proccess.gif'
+import x from '../assets/imgs/wckollel-log.png'
 
 export const Donations = () => {
 
    return (
-      <main className='main'>
-         <h1>donations</h1>
+      <main className='main donations'>
+         <h1>Support wckollel Community</h1>
          <img src={x} alt="" />
          <DonationForm />
       </main>

@@ -3,36 +3,69 @@
       "login": {},
       "register": {}
    },
-   "donations": [
-      {
-         "internal_name": "first_name",
-         "name": "First Name",
-         "placeholder":"First Name",
-         "element_type": "input",
-         "required": true
-      },
-      {
-         "internal_name": "last_name",
-         "name": "Last Name",
-         "placeholder":"Last Name",
-         "element_type": "input",
-         "required": true
-      },
-      {
-         "internal_name": "email",
-         "name": "Email",
-         "placeholder":"Email",
-         "element_type": "input",
-         "type": "email"
-      },
-      {
-         "internal_name": "amount",
-         "name": "Amount",
-         "element_type": "input",
-         "type": "number",
-         "required": true
-      }
-   ],
+   "donations": {
+      "fields": [
+         "amount",
+         "first_name",
+         "last_name",
+         "email"
+      ],
+      "amount": [
+         {
+            "internal_name": "amount",
+            "name": "Amount",
+            "element_type": "select",
+            "type": "number",
+            "placeholder": "Custom Amount",
+            "options": [
+               {
+                  "option_display": "100$",
+                  "option_value": 100,
+                  "id": 1
+               },
+               {
+                  "option_display": "200$",
+                  "option_value": 200,
+                  "id": 2
+               },
+               {
+                  "option_display": "300$",
+                  "option_value": 300,
+                  "id": 3
+               },
+               {
+                  "option_display": "400$",
+                  "option_value": 400,
+                  "id": 4
+               }
+            ],
+            "required": true
+         }
+      ],
+      "contact": [
+         {
+            "internal_name": "first_name",
+            "name": "First Name",
+            "placeholder": "First Name",
+            "element_type": "input",
+            "required": true
+         },
+         {
+            "internal_name": "last_name",
+            "name": "Last Name",
+            "placeholder": "Last Name",
+            "element_type": "input",
+            "required": true
+         },
+         {
+            "internal_name": "email",
+            "name": "Email",
+            "placeholder": "Email",
+            "element_type": "input",
+            "type": "email"
+         }
+      ]
+   },
    "scheduler": [
       {
          "name": "Week",

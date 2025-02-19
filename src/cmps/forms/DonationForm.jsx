@@ -5,12 +5,17 @@ import { apikeys, urls } from '../../config';
 import { Inputs } from '../../cmps';
 import { create } from '../../controllers';
 import { objects } from '../../functions';
+import { useNavigate } from 'react-router-dom';
+import loader from '../../assets/gifs/payment-proccess.gif'
+
 
 export const DonationForm = () => {
-   const { values, handleChange } = useForm(objects.filterFields({}, FIELDS.donations.map(f => f.internal_name)))
+   const navigate = useNavigate();
+   const { values, handleChange } = useForm(objects.filterFields({}, FIELDS.donations.fields))
    const formValuesRef = useRef(values);
    const [tokenizer, setTokenizer] = useState(null);
    const [message, setMessage] = useState('');
+   const [isLoading, setIsLoading] = useState(false);
 
    useEffect(() => {
       formValuesRef.current = values; // Keep the latest values
@@ -24,7 +29,7 @@ export const DonationForm = () => {
          const instance = new window.Tokenizer({
             apikey: apikeys.fluidpay_public, // Replace with live API key
             container: "#card-container",
-            submission: handleSubmission,
+            submission: handleTokenizerSubmit,
             settings: {
                styles: {
                   'body': {
@@ -55,10 +60,14 @@ export const DonationForm = () => {
                   }
                }
             },
-            onload:console.log('baba'),
-            onPaymentChange: (type) => { console.log(type) },
+            onload: (onLoad) => {
+               console.log(onLoad)
+            },
+            onPaymentChange: (type) => {
+               console.log(type)
+            },
             validCard: (card) => {
-               
+               console.log(card);
             },
             validExpiration: (ex) => {
                console.log(ex)
@@ -76,16 +85,23 @@ export const DonationForm = () => {
       };
    }, []);
 
-   const handleSubmission = async (res) => {
-
+   const handleTokenizerSubmit = async (res) => {
       if (res?.token) {
+         setIsLoading(true)
          console.log(res);
          setMessage("");
-         
+
          formValuesRef.current = { ...formValuesRef.current, token: res.token }
          create.donation(formValuesRef.current)
-            .then((data) => console.log(data)
-            )
+            .then((res) => {
+               console.log(res.data);
+
+               if (res.data.response === 'approved') {
+                  navigate("/donations/thank-you", { state: { donor: formValuesRef.current } });
+               } else {
+                  setMessage('Your card has been declined')
+               }
+            }).finally(() => setIsLoading(false))
       } else {
          setMessage("Wrong Card Details Try Again");
       }
@@ -102,8 +118,22 @@ export const DonationForm = () => {
 
    return (
       <form className='form donation' onSubmit={handleSubmit}>
+
+         <h4>Amount</h4>
          {
-            FIELDS.donations.map((field) =>
+            FIELDS.donations.amount.map((field) =>
+               <Inputs
+                  value={values[field.internal_name]}
+                  field={field}
+                  handleChange={handleChange}
+                  key={field.internal_name}
+                  options={field.options}
+               />
+            )
+         }
+         <h4>Contact Details</h4>
+         {
+            FIELDS.donations.contact.map((field) =>
                <Inputs
                   value={values[field.internal_name]}
                   field={field}

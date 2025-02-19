@@ -4,8 +4,8 @@
    align-items: center;
    flex: 1;
 
-   &.auth{
-   justify-content: center;
+   &.auth {
+      justify-content: center;
    }
 
    &.home {
@@ -144,6 +144,20 @@
             text-decoration: underline;
          }
       }
+
+
+   }
+
+   &.donations {
+      h1 {
+         color: $c4;
+      }
+   }
+
+   &.thank-you {
+      color: $c2;
+      justify-content: center;
+      background: $gradient4;
 
 
    }
