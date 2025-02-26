@@ -11,7 +11,7 @@ export const Textarea = ({
          type={type}
          name={internal_name}
          value={value || ''}
-         onChange={handleChange}
+         onChange={(e) => handleChange(e.target.name, e.target.value)}
          required={required}
       />
    )

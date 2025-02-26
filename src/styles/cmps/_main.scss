@@ -149,8 +149,63 @@
    }
 
    &.donations {
+      gap: 1em;
+
       h1 {
+         text-align: center;
          color: $c4;
+      }
+
+
+
+      .donation-amount {
+         flex-direction: column;
+         align-items: center;
+         gap: 2em;
+
+
+         .btns {
+            gap: 1em;
+            flex-wrap: wrap;
+
+            .btn {
+               background: $c5;
+               color: white;
+
+               &.active {
+                  background: $gradient1;
+               }
+            }
+         }
+
+         .input {
+            position: relative;
+
+            &::after {
+               content: '$';
+               color: white;
+               position: absolute;
+               left: 0.5em;
+               bottom: 0;
+               top: 0.1em;
+               font-size: 1.75em;
+            }
+
+            input {
+               padding-left: 2em;
+               width: 300px;
+               font-weight: 500;
+               background: $gradient1;
+               color: white;
+               font-size: 1.55em;
+
+               &::placeholder {
+                  font-size: 0.75em;
+               }
+
+            }
+         }
+
       }
    }
 

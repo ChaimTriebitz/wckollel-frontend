@@ -5,43 +5,81 @@
    },
    "donations": {
       "fields": [
-         "amount",
          "first_name",
          "last_name",
          "email"
       ],
-      "amount": [
-         {
-            "internal_name": "amount",
-            "name": "Amount",
-            "element_type": "select",
-            "type": "number",
-            "placeholder": "Custom Amount",
-            "options": [
-               {
-                  "option_display": "100$",
-                  "option_value": 100,
-                  "id": 1
-               },
-               {
-                  "option_display": "200$",
-                  "option_value": 200,
-                  "id": 2
-               },
-               {
-                  "option_display": "300$",
-                  "option_value": 300,
-                  "id": 3
-               },
-               {
-                  "option_display": "400$",
-                  "option_value": 400,
-                  "id": 4
-               }
-            ],
-            "required": true
-         }
-      ],
+      "amount": {
+         "internal_name": "amount",
+         "name": "Amount",
+         "element_type": "buttons",
+         "type": "number",
+         "options": [
+            {
+               "option_display": "$180",
+               "option_value": "180",
+               "id": 1
+            },
+            {
+               "option_display": "$360",
+               "option_value": "360",
+               "id": 2
+            },
+            {
+               "option_display": "$500",
+               "option_value": "500",
+               "id": 3
+            },
+            {
+               "option_display": "$720",
+               "option_value": "720",
+               "id": 4
+            },
+            {
+               "option_display": "$1,200",
+               "option_value": "1200",
+               "id": 5
+            },
+            {
+               "option_display": "$1,800",
+               "option_value": "1800",
+               "id": 6
+            },
+            {
+               "option_display": "$3,600",
+               "option_value": "3600",
+               "id": 7
+            },
+            {
+               "option_display": "$5,000",
+               "option_value": "5000",
+               "id": 8
+            },
+            {
+               "option_display": "$7,200",
+               "option_value": "7200",
+               "id": 9
+            },
+            {
+               "option_display": "$12,000",
+               "option_value": "12000",
+               "id": 10
+            },
+            {
+               "option_display": "$18,000",
+               "option_value": "18000",
+               "id": 11
+            }
+         ],
+         "required": true
+      },
+      "custom_amount": {
+         "internal_name": "amount",
+         "name": "Amount",
+         "element_type": "input",
+         "placeholder": "Please select Amount",
+         "type": "number"
+      },
       "contact": [
          {
             "internal_name": "first_name",

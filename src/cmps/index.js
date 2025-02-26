@@ -3,7 +3,8 @@ import { Main } from './Main.jsx'
 import { Footer } from './Footer.jsx'
 import { Msg } from './Msg.jsx'
 // FORMS
-import { DonationForm } from './forms/DonationForm.jsx'
+import { DonationForm } from './donations/DonationForm.jsx'
+import { DonationAmount } from './donations/DonationAmount.jsx'
 // ADMIN
 import { Scheduler } from './admin/Scheduler.jsx'
 
@@ -39,6 +40,7 @@ import { Details } from './table/Details.jsx'
 import { AddRow } from './table/AddRow.jsx'
 
 export {
+   DonationAmount,
    AddRow,
    AddRowDialog,
    InputCell,

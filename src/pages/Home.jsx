@@ -35,7 +35,7 @@ const data = [
    {
       img: img6,
       h2: 'Join Us',
-      p: 'We invite you to be part of the wcKollel family, a space where Torah study and community go hand-in-hand. Our kollel is here to support you on your journey, regardless of your professional commitments, helping you connect with Jewish learning and values in a meaningful and balanced way.',
+      p: 'We invite you to be part of the WcKollel family, a space where Torah study and community go hand-in-hand. Our kollel is here to support you on your journey, regardless of your professional commitments, helping you connect with Jewish learning and values in a meaningful and balanced way.',
    },
 ]
 

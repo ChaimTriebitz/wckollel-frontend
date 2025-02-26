@@ -18,7 +18,7 @@ export const useForm = (initValues = {}) => {
       setChangedValues(objects.getChangedProperties(initValuesRef.current, values))
    }, [values])
    
-   const handleChange = (e) => setValues((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+   const handleChange = (name,value) => setValues((prev) => ({ ...prev, [name]: value }))
 
    return {
       values,

@@ -10,11 +10,11 @@ export const Login = () => {
    const handleSubmit = async (e) => {
       e.preventDefault()
       auth.login(values)
-      .then(() => {
-         navigate('/admin')
-      }).catch((error) =>
-         setErr(error.response.data.error)
-      )
+         .then(() => {
+            navigate('/admin')
+         }).catch((error) =>
+            setErr(error.response.data.error)
+         )
    }
 
    return (
@@ -26,11 +26,17 @@ export const Login = () => {
                id='username'
                name='username'
                value={values.username}
-               onChange={handleChange} />
+               onChange={(e) => handleChange(e.target.name, e.target.value)}
+            />
          </div>
          <div className="input">
             <label htmlFor="password">password</label>
-            <input id='password' name='password' value={values.password} onChange={handleChange} />
+            <input
+               id='password'
+               name='password'
+               value={values.password}
+               onChange={(e) => handleChange(e.target.name, e.target.value)}
+            />
          </div>
          <button className='btn success'>submit</button>
          <p className='error'>{err}</p>

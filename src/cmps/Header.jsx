@@ -8,7 +8,7 @@ import { useGlobalState } from '../hooks';
 const links = [
    { name: 'HOME', link: '/' },
    { name: 'SCHEDULES', link: '/schedules' },
-   // { name: 'DONATIONS', link: '/donations' },
+   { name: 'DONATIONS', link: '/donations' },
 ]
 
 export const Header = () => {

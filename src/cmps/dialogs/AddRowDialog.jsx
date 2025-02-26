@@ -40,7 +40,6 @@ export const AddRowDialog = () => {
                         value={values[field.internal_name]}
                         field={field}
                         handleChange={handleChange}
-                        options={field.options}
                      />
                   )
                }

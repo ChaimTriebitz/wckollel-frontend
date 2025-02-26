@@ -20,6 +20,7 @@ export const DonationThanks = () => {
          <h4>Your donation has been successfully processed.</h4>
          <h4>A receipt has been sent to your email: <span>{donor.email}</span>.</h4>
          <h3>We appreciate your support!</h3>
+         <h4></h4>
       </main>
    );
 };

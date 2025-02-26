@@ -12,10 +12,12 @@ export const Input = ({
          type={type}
          name={internal_name}
          value={value || ''}
-         onChange={handleChange}
+         onChange={(e) => handleChange(e.target.name, e.target.value)}
          required={required}
          onBlur={handleBlur}
          placeholder={placeholder}
+         autoComplete={type === 'number' ? "off" : 'on'}
+         onWheel={(e)=>e.target.blur()}
       />
    )
 }
