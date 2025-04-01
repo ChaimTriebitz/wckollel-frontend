@@ -1,17 +1,16 @@
 export const Select = ({
    field = {},
-   options = [],
    value = '',
    handleChange = () => { }
 }) => {
 
-   const { name = '', internal_name = '', id = '', required = false } = field
+   const {options=[], name = '', internal_name = '', id = '', required = false } = field
 
    return (
       <select
          name={internal_name}
          id={id}
-         onChange={handleChange}
+         onChange={(e) => handleChange(e.target.name, e.target.value)}
          value={value || ''}
          className='select'
          required={required}

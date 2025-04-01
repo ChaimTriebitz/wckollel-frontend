@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { msgEvent } from '../functions'
+import { events } from './../functions'
 import { svgs } from '../assets/svgs'
 
 
@@ -9,7 +9,7 @@ export const Msg = () => {
    const [isHidden, setIsHidden] = useState(true)
 
    useEffect(() => {
-      let removeEvent = msgEvent.on('show-msg', (msg) => {
+      let removeEvent = events.listen('show-msg', (msg) => {
          setMsg(msg)
          setIsHidden(false)
          hideMsg(2500)
@@ -30,17 +30,20 @@ export const Msg = () => {
 
    const getIcon = () => {
       switch (msg?.type) {
-         case 'success': return '✅'
-         case 'warning': return '!'
-         default: return ''
+         case 'success':
+            return svgs.check
+         case 'warning':
+            return svgs.exclamation
+         default:
+            return <></>
       }
    }
 
    return (
       <div className={`msg ${msg ? 'show' : ''} ${isHidden ? 'hide' : ''} ${msg ? msg.type : ''}`}>
          <span>{getIcon()}</span>
-         <h1>{msg ? msg.txt : ''}</h1>
-         <button className="close-btn" onClick={() => hideMsg(0)}>{'❌'}</button>
+         <h6>{msg ? msg.txt : ''}</h6>
+         <button className="close-btn" onClick={() => hideMsg(0)}>x</button>
       </div>
    )
 }

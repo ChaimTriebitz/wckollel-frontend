@@ -4,4 +4,7 @@ export const initialState = {
    loggedInUser: null,
    schedules: [],
    isDataLoading: true,
+   donation: {
+      amount: 0
+   }
 }

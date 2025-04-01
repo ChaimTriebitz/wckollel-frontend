@@ -3,7 +3,6 @@ import { Input, Select, Textarea } from '..'
 export const Inputs = ({
    field = {},
    value,
-   options = [],
    handleChange = () => { },
    handleBlur = () => { }
 }) => {
@@ -36,7 +35,6 @@ export const Inputs = ({
             <Select
                field={field}
                value={value}
-               options={options}
                handleChange={handleChange}
             />
          }
